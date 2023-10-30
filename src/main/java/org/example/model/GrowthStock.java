@@ -3,8 +3,8 @@ package org.example.model;
 public class GrowthStock extends Stock{
     private int growth_rate;
 
-    public GrowthStock(int id, String name, int price, int companyId, int marketId, int growth_rate) {
-        super(id, name, price, companyId, marketId);
+    public GrowthStock(int id, String name, int price, Company company, Market market, int growth_rate) {
+        super(id, name, price, company, market);
         this.growth_rate = growth_rate;
     }
 
