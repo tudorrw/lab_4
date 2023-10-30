@@ -3,25 +3,34 @@ package org.example.model;
 import java.time.LocalDateTime;
 
 public class Notification {
-    private User user;
+    private int userId;
+    private int id;
     private String message;
     private LocalDateTime timestamp;
     private String status;
 
-    public Notification(User user, String message, LocalDateTime timestamp, String status) {
-        this.user = user;
+    public Notification(int user, int id, String message, LocalDateTime timestamp, String status) {
+        this.userId = user;
+        this.id = id;
         this.message = message;
         this.timestamp = timestamp;
         this.status = status;
     }
 
-
-    public User getUser() {
-        return user;
+    public int getId() {
+        return id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getMessage() {

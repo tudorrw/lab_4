@@ -1,12 +1,12 @@
 package org.example.controller;
 
-import org.example.repo.UserRepository;
+import org.example.repo.UserIRepository;
 import org.example.model.User;
 
 public class UserController {
-    private UserRepository userRepository;
+    private UserIRepository userRepository;
 
-    public UserController(UserRepository userRepository) {
+    public UserController(UserIRepository userRepository) {
         this.userRepository = userRepository;
     }
     public void createUser(User user) {

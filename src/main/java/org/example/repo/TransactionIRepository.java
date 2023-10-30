@@ -5,10 +5,10 @@ import org.example.model.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TransactionRepository implements Repository<Transaction>{
+public class TransactionIRepository implements IRepository<Transaction> {
     private List<Transaction> transactions;
 
-    public TransactionRepository() {
+    public TransactionIRepository() {
         this.transactions = new ArrayList<>();
     }
 

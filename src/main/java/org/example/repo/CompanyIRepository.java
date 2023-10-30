@@ -1,15 +1,14 @@
 package org.example.repo;
 
-import org.example.model.Admin;
 import org.example.model.Company;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompanyRepository implements Repository<Company>{
+public class CompanyIRepository implements IRepository<Company> {
     private List<Company> companies;
 
-    public CompanyRepository() {
+    public CompanyIRepository() {
         this.companies = new ArrayList<>();
     }
 

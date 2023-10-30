@@ -1,12 +1,12 @@
 package org.example.controller;
 
 import org.example.model.Admin;
-import org.example.repo.AdminRepository;
+import org.example.repo.AdminIRepository;
 
 public class AdminController {
-    private AdminRepository adminRepository;
+    private AdminIRepository adminRepository;
 
-    public AdminController(AdminRepository adminRepository) {
+    public AdminController(AdminIRepository adminRepository) {
         this.adminRepository = adminRepository;
     }
 

@@ -5,10 +5,10 @@ import org.example.model.Portfolio;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PortfolioRepository implements Repository<Portfolio>{
+public class PortfolioIRepository implements IRepository<Portfolio> {
     private List<Portfolio> portfolios;
 
-    public PortfolioRepository() {
+    public PortfolioIRepository() {
         this.portfolios = new ArrayList<>();
     }
 

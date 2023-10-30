@@ -1,17 +1,14 @@
 package org.example.repo;
 
 import org.example.model.Admin;
-import org.example.model.User;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class AdminRepository implements Repository<Admin>{
+public class AdminIRepository implements IRepository<Admin> {
     private List<Admin> admins;
 
-    public AdminRepository() {
+    public AdminIRepository() {
         this.admins = new ArrayList<>();
     }
 

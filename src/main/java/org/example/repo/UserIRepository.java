@@ -1,15 +1,14 @@
 package org.example.repo;
 
 import org.example.model.User;
-import java.util.HashMap;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-public class UserRepository implements Repository<User>{
+public class UserIRepository implements IRepository<User> {
     private List<User> users;
 
-    public UserRepository() {
+    public UserIRepository() {
         this.users = new ArrayList<>();
     }
 
