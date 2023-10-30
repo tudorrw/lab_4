@@ -4,15 +4,15 @@ public class Stock {
     private int id;
     private String name;
     private int price;
-    private int CompanyId;
-    private int MarketId;
+    private Company company;
+    private Market market;
 
-    public Stock(int id, String name, int price, int companyId, int marketId) {
+    public Stock(int id, String name, int price, Company company_, Market market_) {
         this.id = id;
         this.name = name;
         this.price = price;
-        CompanyId = companyId;
-        MarketId = marketId;
+        company = company_;
+        market = market_;
     }
 
     public int getId() {
@@ -39,19 +39,19 @@ public class Stock {
         this.price = price;
     }
 
-    public int getCompanyId() {
-        return CompanyId;
+    public Company getCompany() {
+        return company;
     }
 
-    public void setCompanyId(int companyId) {
-        CompanyId = companyId;
+    public void setCompany(Company company_) {
+        company = company_;
     }
 
-    public int getMarketId() {
-        return MarketId;
+    public Market getmarket() {
+        return market;
     }
 
-    public void setMarketId(int marketId) {
-        MarketId = marketId;
+    public void setMarket(Market market_) {
+        market = market_;
     }
 }
