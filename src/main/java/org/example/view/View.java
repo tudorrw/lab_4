@@ -22,36 +22,30 @@ public class View {
         System.out.println("Choose a role");
         System.out.println("1 - User");
         System.out.println("2 - Admin");
-
-    }
-    public void displayMenuForUser() {
-        System.out.println("Welcome to the best stock app on the planet!");
-        System.out.println("Please register or log in");
-        System.out.println("1 - Register");
-        System.out.println("2 - Log In");
         System.out.println("3 - Exit");
-    }
 
+    }
     public void run() {
         Scanner input = new Scanner(System.in);
-        int selection = -1;
+        int selection = 0;
 
-        while (selection != 0) {
+        while (selection != 3) {
             displayMenu();
             try {
                 selection = input.nextInt();
 
                 switch (selection) {
-                    case 0:
-                        System.exit(0);
-                        break;
                     case 1:
                         System.out.println("do stuff for user");
                         UserView userView = new UserView(userController);
+                        userView.run();
                         break;
                     case 2:
                         System.out.println("do stuff for admin");
                         AdminView adminView = new AdminView(adminController);
+                        break;
+                    case 3:
+                        System.exit(0);
                         break;
                     default:
                         System.out.println("Invalid selection. Please try again.");
