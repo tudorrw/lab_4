@@ -1,23 +1,34 @@
 package org.example.model;
 
+import java.util.List;
+
 public class Portfolio {
-    private User user;
+    private int userId;
+    private int id;
     private int cash;
-    private Stock[] stocks;
+    private List<Integer> idStocks;
 
-    public Portfolio(User user, int cash, Stock[] stocks) {
-        this.user = user;
+    public Portfolio(int userId, int id, int cash, List<Integer> idStocks) {
+        this.userId = userId;
+        this.id = id;
         this.cash = cash;
-        this.stocks = stocks;
+        this.idStocks = idStocks;
     }
 
-
-    public User getUser() {
-        return user;
+    public int getId() {
+        return id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public int getCash() {
@@ -28,11 +39,11 @@ public class Portfolio {
         this.cash = cash;
     }
 
-    public Stock[] getStocks() {
-        return stocks;
+    public List<Integer> getIdStocks() {
+        return idStocks;
     }
 
-    public void setStocks(Stock[] stocks) {
-        this.stocks = stocks;
+    public void setIdStocks(List<Integer> idStocks) {
+        this.idStocks = idStocks;
     }
 }
