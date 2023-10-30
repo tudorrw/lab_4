@@ -6,31 +6,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class UserRepository implements Repository<User, Integer>{
-    private Map<Integer, User> users = new HashMap<>();
+public class UserRepository implements Repository<User>{
+    private List<User> users;
 
-    @Override
-    public User getById(Integer id) {
-        return users.get(id);
+    public UserRepository() {
+        this.users = new ArrayList<>();
     }
 
     @Override
     public List<User> getObjects() {
-        return new ArrayList<>(users.values());
+        return users;
     }
 
     @Override
     public void save(User user) {
-        users.put(user.getId(), user);
+        users.add(user);
     }
 
-    @Override
-    public void update(User user) {
+//    @Override
+//    public void update(User user) {
+//
+//    }
 
-    }
-
     @Override
-    public void delete(Integer id) {
-        users.remove(id);
+    public void delete(User object) {
+        users.remove(object);
     }
 }
