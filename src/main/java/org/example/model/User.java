@@ -1,5 +1,7 @@
 package org.example.model;
 
+import java.util.Objects;
+
 public class User {
     private int id;
     private String username;
@@ -9,6 +11,11 @@ public class User {
         this.id = id;
         this.username = username;
         this.password = password;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username);
     }
 
     @Override

@@ -40,6 +40,7 @@ public class UserView {
                     case 3:
                         System.exit(0);
                         break;
+
                     default:
                         System.out.println("Invalid selection. Please try again.");
                         break;
@@ -76,7 +77,13 @@ public class UserView {
         if(password.equals(passwordConfirmation) == false) {
             System.out.println("passwords given do not match");
         }
-
+        if(userController.createUser(username, password)) {
+            System.out.println("You have authenticated!");
+        }
+        else {
+            System.out.println("This username already exists!");
+        }
+        userController.updateUser();;
 
     }
     public void logIn() {
@@ -94,5 +101,8 @@ public class UserView {
             System.out.println("Invalid password!");
             return;
         }
+        userController.deleteUser(username);
+        userController.updateUser();
+
     }
 }
