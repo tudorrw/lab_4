@@ -54,6 +54,14 @@ public class UserController {
         userIRepository.delete(user);
         return true;
     }
+    public boolean deleteUser(String username) {
+        User user = findUser(username);
+        if(user == null) {
+            return false;
+        }
+        userIRepository.delete(user);
+        return true;
+    }
     public void showAllUsers() {
         List<User> database = userIRepository.getObjects();
         for (User user: database) {

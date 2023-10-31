@@ -22,6 +22,9 @@ public class UserIRepository implements IRepository<User> {
         this.users = new ArrayList<>();
         insert_values();
     }
+    public UserIRepository(String message) {
+        this.users = new ArrayList<>();
+    }
 
     @Override
     public List<User> getObjects() {
