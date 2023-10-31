@@ -104,7 +104,7 @@ public class UserView {
             dashboard(username);
         }
         else {
-            System.out.println("This username doesn't exist");
+            System.out.println("Login failed. Wrong username or password!");
         }
     }
 
@@ -129,7 +129,7 @@ public class UserView {
                 switch (selection) {
                     case 1:
                         System.out.println("implement search stock");
-                        userController.updateUser();
+                        userController.showAllUsers();
                         break;
                     case 2:
                         System.out.println("implement buy stock");
@@ -150,7 +150,7 @@ public class UserView {
                         System.out.println("Do you want to delete your account?\nEnter your password to confirm");
 
                         Scanner option = new Scanner(System.in);
-                        String password= option.nextLine().toLowerCase();
+                        String password = option.nextLine();
                         if(userController.deleteUser(username, password)){
                             System.out.println("Account deleted successfully!");
                             return;

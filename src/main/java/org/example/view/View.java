@@ -50,7 +50,7 @@ public class View {
                         break;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a number.");
+                System.out.println("Incorrect passsword!");
                 input.next();
             }
         }

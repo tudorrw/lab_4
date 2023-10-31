@@ -23,8 +23,18 @@ public class UserController {
         }
         return null;
     }
+    public User findUser(String username) {
+        List<User> database = userIRepository.getObjects();
+        for(User user: database) {
+            if(user.getUsername().equals(username)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     public boolean createUser(String username, String password) {
-        if(findUser(username, password) != null) {
+        if(findUser(username) != null) {
             return false;
         }
         User newUser = new User(userIdCounter++, username, password);
@@ -33,10 +43,7 @@ public class UserController {
     }
 
     public void updateUser() {
-        List<User> database = userIRepository.getObjects();
-        for (User user: database) {
-            System.out.println(user.toString());
-        }
+
     }
 
     public boolean deleteUser(String username, String password) {
@@ -47,6 +54,11 @@ public class UserController {
         userIRepository.delete(user);
         return true;
     }
-
+    public void showAllUsers() {
+        List<User> database = userIRepository.getObjects();
+        for (User user: database) {
+            System.out.println(user.toString());
+        }
+    }
 
 }
