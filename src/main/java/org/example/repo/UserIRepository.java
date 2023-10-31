@@ -8,8 +8,19 @@ import java.util.List;
 public class UserIRepository implements IRepository<User> {
     private List<User> users;
 
+    void insert_values() {
+        User user1 = new User(1, "tudor", "passwd");
+        User user2 = new User(2, "raul", "qwerty");
+        User user3 = new User(3, "alex", "123");
+        User user4 = new User(4, "ana", "qwerty");
+        save(user1);
+        save(user2);
+        save(user3);
+        save(user4);
+    }
     public UserIRepository() {
         this.users = new ArrayList<>();
+        insert_values();
     }
 
     @Override

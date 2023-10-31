@@ -6,7 +6,7 @@ import org.example.model.User;
 import java.util.List;
 
 public class UserController {
-    private UserIRepository userIRepository;
+    private final UserIRepository userIRepository;
     private int userIdCounter;
 
     public UserController(UserIRepository userIRepository) {
@@ -14,17 +14,17 @@ public class UserController {
         this.userIdCounter = userIRepository.getObjects().size() + 1;
     }
 
-    public User findUser(String username) {
+    public User findUser(String username, String password) {
         List<User> database = userIRepository.getObjects();
         for(User user: database) {
-            if(user.getUsername().equals(username)) {
+            if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 return user;
             }
         }
         return null;
     }
     public boolean createUser(String username, String password) {
-        if(findUser(username) != null) {
+        if(findUser(username, password) != null) {
             return false;
         }
         User newUser = new User(userIdCounter++, username, password);
@@ -39,8 +39,8 @@ public class UserController {
         }
     }
 
-    public boolean deleteUser(String username) {
-        User user = findUser(username);
+    public boolean deleteUser(String username, String password) {
+        User user = findUser(username, password);
         if(user == null) {
             return false;
         }

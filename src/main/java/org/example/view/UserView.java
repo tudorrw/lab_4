@@ -6,7 +6,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserView {
-    private UserController userController;
+    private final UserController userController;
 
     public UserView(UserController userController) {
         this.userController = userController;
@@ -30,11 +30,9 @@ public class UserView {
 
                 switch (selection) {
                     case 1:
-                        System.out.println("implement register function");
                         register();
                         break;
                     case 2:
-                        System.out.println("implement log in function");
                         logIn();
                         break;
                     case 3:
@@ -55,54 +53,120 @@ public class UserView {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter a username: ");
         String username = input.nextLine();
-        if (username.equals("")) {
+        if (username.isEmpty()) {
             System.out.println("Invalid username!");
             return;
-         }
+        }
 
         System.out.print("Enter a password: ");
         String password = input.nextLine();
-        if(password.equals("")) {
+        if(password.isEmpty()) {
             System.out.println("Invalid password!");
             return;
         }
 
-        System.out.print("Enter the password again!");
+        System.out.print("Enter the password again: ");
         String passwordConfirmation = input.nextLine();
-        if(passwordConfirmation.equals("")) {
+        if(passwordConfirmation.isEmpty()) {
             System.out.println("Invalid password confirmation!");
             return;
         }
 
-        if(password.equals(passwordConfirmation) == false) {
+        if(!password.equals(passwordConfirmation)) {
             System.out.println("passwords given do not match");
+            return;
         }
         if(userController.createUser(username, password)) {
-            System.out.println("You have authenticated!");
+            System.out.println("Registered!");
+            dashboard(username);
         }
         else {
             System.out.println("This username already exists!");
         }
-        userController.updateUser();;
-
     }
     public void logIn() {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter a username: ");
         String username = input.nextLine();
-        if (username.equals("")) {
+        if (username.isEmpty()) {
             System.out.println("Invalid username!");
             return;
         }
 
         System.out.print("Enter a password: ");
         String password = input.nextLine();
-        if(password.equals("")) {
+        if(password.isEmpty()) {
             System.out.println("Invalid password!");
             return;
         }
-        userController.deleteUser(username);
-        userController.updateUser();
+        if(userController.findUser(username, password) != null) {
+            System.out.println("Logged in!");
+            dashboard(username);
+        }
+        else {
+            System.out.println("This username doesn't exist");
+        }
+    }
 
+    private void dashboardMenu() {
+        System.out.println("1. Search Stock");
+        System.out.println("2. Buy Stock");
+        System.out.println("3. Sell Stock");
+        System.out.println("4. Transaction History");
+        System.out.println("5. Change password");
+        System.out.println("6. Log out");
+        System.out.println("7. Delete account");
+    }
+    private void dashboard(String username) {
+        Scanner input = new Scanner(System.in);
+        int selection = 0;
+
+        while (selection != 6) {
+            dashboardMenu();
+            try {
+                selection = input.nextInt();
+
+                switch (selection) {
+                    case 1:
+                        System.out.println("implement search stock");
+                        userController.updateUser();
+                        break;
+                    case 2:
+                        System.out.println("implement buy stock");
+                        break;
+                    case 3:
+                        System.out.println("implement sell stock");
+                        break;
+                    case 4:
+                        System.out.println("implement transaction history");
+                        break;
+                    case 5:
+                        System.out.println("implement change password");
+                        break;
+                    case 6:
+                        System.out.println("logged out");
+                        break;
+                    case 7:
+                        System.out.println("Do you want to delete your account?\nEnter your password to confirm");
+
+                        Scanner option = new Scanner(System.in);
+                        String password= option.nextLine().toLowerCase();
+                        if(userController.deleteUser(username, password)){
+                            System.out.println("Account deleted successfully!");
+                            return;
+                        }
+                        else {
+                            System.out.println("Invalid input. Please try again.");
+                        }
+                        break;
+                    default:
+                        System.out.println("Invalid selection. Please try again.");
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                input.next();
+            }
+        }
     }
 }
