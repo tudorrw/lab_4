@@ -5,10 +5,10 @@ import org.example.model.Market;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MarketIRepository implements IRepository<Market> {
+public class MarketRepository implements IRepository<Market> {
     private List<Market> markets;
 
-    public MarketIRepository() {
+    public MarketRepository() {
         this.markets = new ArrayList<>();
     }
 

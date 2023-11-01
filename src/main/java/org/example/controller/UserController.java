@@ -1,21 +1,21 @@
 package org.example.controller;
 
-import org.example.repo.UserIRepository;
+import org.example.repo.UserRepository;
 import org.example.model.User;
 
 import java.util.List;
 
 public class UserController {
-    private final UserIRepository userIRepository;
+    private final UserRepository userRepository;
     private int userIdCounter;
 
-    public UserController(UserIRepository userIRepository) {
-        this.userIRepository = userIRepository;
-        this.userIdCounter = userIRepository.getObjects().size() + 1;
+    public UserController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+        this.userIdCounter = userRepository.getObjects().size() + 1;
     }
 
     public User findUser(String username, String password) {
-        List<User> database = userIRepository.getObjects();
+        List<User> database = userRepository.getObjects();
         for(User user: database) {
             if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 return user;
@@ -24,7 +24,7 @@ public class UserController {
         return null;
     }
     public User findUser(String username) {
-        List<User> database = userIRepository.getObjects();
+        List<User> database = userRepository.getObjects();
         for(User user: database) {
             if(user.getUsername().equals(username)) {
                 return user;
@@ -38,7 +38,7 @@ public class UserController {
             return false;
         }
         User newUser = new User(userIdCounter++, username, password);
-        userIRepository.save(newUser);
+        userRepository.save(newUser);
         return true;
     }
 
@@ -51,7 +51,7 @@ public class UserController {
         if(user == null) {
             return false;
         }
-        userIRepository.delete(user);
+        userRepository.delete(user);
         return true;
     }
     public boolean deleteUser(String username) {
@@ -59,11 +59,11 @@ public class UserController {
         if(user == null) {
             return false;
         }
-        userIRepository.delete(user);
+        userRepository.delete(user);
         return true;
     }
     public void showAllUsers() {
-        List<User> database = userIRepository.getObjects();
+        List<User> database = userRepository.getObjects();
         for (User user: database) {
             System.out.println(user.toString());
         }

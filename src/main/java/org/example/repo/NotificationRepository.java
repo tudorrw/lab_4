@@ -5,10 +5,10 @@ import org.example.model.Notification;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotificationIRepository implements IRepository<Notification> {
+public class NotificationRepository implements IRepository<Notification> {
     private List<Notification> notifications;
 
-    public NotificationIRepository() {
+    public NotificationRepository() {
         this.notifications = new ArrayList<>();
     }
 

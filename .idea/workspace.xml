@@ -4,14 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="fix bugs UserView">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/test/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/test/TestIRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/test/TestModel.java" afterDir="false" />
+    <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="creating new entities in controllor, repo, view for user and admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/AdminView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/AdminIRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/AdminRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/CompanyIRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/CompanyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/GrowthStockIRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/GrowthStockRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/MarketIRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/MarketRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/NotificationIRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/NotificationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/PortfolioIRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/PortfolioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/StockIRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/StockRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/TransactionIRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/TransactionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/UserIRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/ValueStockIRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/ValueStockRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/test/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/test/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/test/UserIRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/test/UserRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,19 +31,19 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Enum" />
         <option value="Class" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;tudorrw&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -42,9 +51,6 @@
         <option name="url" value="https://github.com/tudorrw/lab_2.git" />
       </UrlAndAccount>
     </option>
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -58,45 +64,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ToolWindowCommit.ShowToolbar": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "onboarding.tips.debug.path": "/Users/tudor/Ubb_Stuff/3_semester/MAP/lab/lab_2/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/tudor/Ubb_Stuff/3_semester/MAP/lab/lab_2/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory",
-      "module"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;
     ]
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="org.example.test" />
-    </key>
-  </component>
-  <component name="ShelveChangesManager">
-    <option name="groupingKeys">
-      <option value="directory" />
-    </option>
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -107,7 +111,7 @@
       <option name="presentableId" value="Default" />
       <updated>1698618959332</updated>
       <workItem from="1698618960842" duration="526000" />
-      <workItem from="1698619497958" duration="49180000" />
+      <workItem from="1698619497958" duration="22852000" />
     </task>
     <task id="LOCAL-00001" summary="creating lab_2&#10;-implementation of model entities&#10;-crating packages for MVC&#10;-crating repo interfac">
       <option name="closed" value="true" />
@@ -133,47 +137,7 @@
       <option name="project" value="LOCAL" />
       <updated>1698689694800</updated>
     </task>
-    <task id="LOCAL-00004" summary="adding methods to UserView">
-      <option name="closed" value="true" />
-      <created>1698696649446</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1698696649446</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Change Stock attributes company and market">
-      <option name="closed" value="true" />
-      <created>1698700184991</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1698700184991</updated>
-    </task>
-    <task id="LOCAL-00006" summary="user &amp; admin controller, and view (not complete!)">
-      <option name="closed" value="true" />
-      <created>1698705911334</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1698705911334</updated>
-    </task>
-    <task id="LOCAL-00007" summary="add functionality to UserView">
-      <option name="closed" value="true" />
-      <created>1698753470869</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1698753470869</updated>
-    </task>
-    <task id="LOCAL-00008" summary="fix bugs UserView">
-      <option name="closed" value="true" />
-      <created>1698767778063</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1698767778064</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,12 +170,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="creating lab_2&#10;-implementation of model entities&#10;-crating packages for MVC&#10;-crating repo interfac" />
     <MESSAGE value="creating new entities in controllor, repo, view for user and admin" />
-    <MESSAGE value="adding methods to UserView" />
-    <MESSAGE value="Change Stock attributes company and market" />
-    <MESSAGE value="user &amp; admin controller, and view (not complete!)" />
-    <MESSAGE value="add functionality to UserView" />
-    <MESSAGE value="fix bugs UserView" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bugs UserView" />
+    <option name="LAST_COMMIT_MESSAGE" value="creating new entities in controllor, repo, view for user and admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

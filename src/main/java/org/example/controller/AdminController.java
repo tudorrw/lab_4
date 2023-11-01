@@ -1,19 +1,19 @@
 package org.example.controller;
 
 import org.example.model.Admin;
-import org.example.repo.AdminIRepository;
+import org.example.repo.AdminRepository;
 import java.util.List;
 
 public class AdminController {
-    private AdminIRepository adminIRepository;
+    private AdminRepository adminRepository;
     private int adminIdCounter;
-    public AdminController(AdminIRepository adminRepository) {
-        this.adminIRepository = adminRepository;
+    public AdminController(AdminRepository adminRepository) {
+        this.adminRepository = adminRepository;
         this.adminIdCounter = adminRepository.getObjects().size() + 1;
     }
 
     public Admin findAdmin(String username) {
-        List<Admin> database = adminIRepository.getObjects();
+        List<Admin> database = adminRepository.getObjects();
         for(Admin admin: database) {
             if(admin.getUsername().equals(username)){
                 return admin;
@@ -26,7 +26,7 @@ public class AdminController {
             return false;
         }
         Admin newAdmin = new Admin(adminIdCounter++, username, password, adminRole);
-        adminIRepository.save(newAdmin);
+        adminRepository.save(newAdmin);
         return true;
     }
 
@@ -39,7 +39,7 @@ public class AdminController {
         if(admin == null) {
             return false;
         }
-        adminIRepository.delete(admin);
+        adminRepository.delete(admin);
         return true;
     }
 }

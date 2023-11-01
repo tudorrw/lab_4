@@ -5,7 +5,7 @@ import org.example.model.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserIRepository implements IRepository<User> {
+public class UserRepository implements IRepository<User> {
     private List<User> users;
 
     void insert_values() {
@@ -18,11 +18,11 @@ public class UserIRepository implements IRepository<User> {
         save(user3);
         save(user4);
     }
-    public UserIRepository() {
+    public UserRepository() {
         this.users = new ArrayList<>();
         insert_values();
     }
-    public UserIRepository(String message) {
+    public UserRepository(String message) {
         this.users = new ArrayList<>();
     }
 

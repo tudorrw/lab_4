@@ -1,7 +1,7 @@
 package org.example.test;
 
 import org.example.controller.UserController;
-import org.example.repo.UserIRepository;
+import org.example.repo.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,12 +9,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UserControllerTest {
     private UserController userController;
-    private UserIRepository userIRepository;
+    private UserRepository userRepository;
 
     @BeforeEach
     void setUp() {
-        this.userIRepository = new UserIRepository();
-        this.userController = new UserController(userIRepository);
+        this.userRepository = new UserRepository();
+        this.userController = new UserController(userRepository);
 
     }
     @Test
