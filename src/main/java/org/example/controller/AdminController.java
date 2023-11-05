@@ -15,7 +15,7 @@ public class AdminController {
     public Admin findAdmin(String username) {
         List<Admin> database = adminRepository.getObjects();
         for(Admin admin: database) {
-            if(admin.getUsername().equals(username)){
+            if(admin.getUsername() == username){
                 return admin;
             }
         }

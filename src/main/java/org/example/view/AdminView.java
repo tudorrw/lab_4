@@ -32,7 +32,7 @@ public class AdminView {
 
                         break;
                     case 2:
-                        System.out.println("delete users by username");
+                        System.out.println("delete users");
                         break;
                     case 3:
                         System.exit(0);
