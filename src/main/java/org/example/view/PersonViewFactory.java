@@ -11,7 +11,7 @@ public class PersonViewFactory {
             case 2:
                 return new AdminView(adminController);
             default:
-                throw new IllegalArgumentException("Invalid selection");
+                return null;
         }
     }
 }

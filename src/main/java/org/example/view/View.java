@@ -37,10 +37,15 @@ public class View {
                     view.run();
                 }
                 else {
-                    System.out.println("Invalid selection!");
+                    if(selection == 3){
+                        System.out.println("closing app...");
+                    }
+                    else {
+                        throw new InputMismatchException();
+                    }
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Incorrect passsword!");
+                System.out.println("Invalid input!");
                 input.next();
             }
         }

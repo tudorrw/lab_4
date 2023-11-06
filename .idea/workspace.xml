@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="lab 3">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/view/IPersonView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/view/PersonViewFactory.java" afterDir="false" />
+    <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="factory pattern in user-admin view">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/AdminView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/UserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/UserView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/PersonViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/PersonViewFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +25,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -69,7 +69,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "factory-view",
     "last_opened_file_path": "/Users/tudor/Ubb_Stuff/3_semester/MAP/lab/lab_3",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -128,7 +128,7 @@
       <workItem from="1698619497958" duration="49499000" />
       <workItem from="1698775961519" duration="4516000" />
       <workItem from="1698824340569" duration="4220000" />
-      <workItem from="1699209319012" duration="6654000" />
+      <workItem from="1699209319012" duration="7952000" />
     </task>
     <task id="LOCAL-00001" summary="creating lab_2&#10;-implementation of model entities&#10;-crating packages for MVC&#10;-crating repo interfac">
       <option name="closed" value="true" />
@@ -210,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699209634392</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="factory pattern in user-admin view">
+      <option name="closed" value="true" />
+      <created>1699265965341</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699265965341</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +235,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="factory-view" />
                       </list>
                     </value>
                   </entry>
@@ -250,7 +258,8 @@
     <MESSAGE value="fix bugs UserView" />
     <MESSAGE value="junit tests for user model, repository, controller" />
     <MESSAGE value="lab 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab 3" />
+    <MESSAGE value="factory pattern in user-admin view" />
+    <option name="LAST_COMMIT_MESSAGE" value="factory pattern in user-admin view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
