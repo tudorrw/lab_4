@@ -6,7 +6,6 @@ import org.example.repo.AdminRepository;
 import org.example.repo.UserRepository;
 import org.example.view.View;
 
-
 public class Main {
     public static void main(String[] args) {
         UserRepository userRepo = new UserRepository();
@@ -14,8 +13,6 @@ public class Main {
         UserController userController = new UserController(userRepo);
         AdminController adminController = new AdminController(adminRepo);
         View view = new View(userController, adminController);
-
         view.run();
-
     }
 }

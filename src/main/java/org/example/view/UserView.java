@@ -5,7 +5,7 @@ import org.example.controller.UserController;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class UserView {
+public class UserView implements IPersonView{
     private final UserController userController;
 
     public UserView(UserController userController) {
@@ -19,6 +19,7 @@ public class UserView {
         System.out.println("2 - Log In");
         System.out.println("3 - Exit");
     }
+    @Override
     public void run() {
         Scanner input = new Scanner(System.in);
         int selection = 0;

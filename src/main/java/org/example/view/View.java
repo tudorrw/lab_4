@@ -31,23 +31,13 @@ public class View {
             displayMenu();
             try {
                 selection = input.nextInt();
-
-                switch (selection) {
-                    case 1:
-                        System.out.println("do stuff for user");
-                        UserView userView = new UserView(userController);
-                        userView.run();
-                        break;
-                    case 2:
-                        System.out.println("do stuff for admin");
-                        AdminView adminView = new AdminView(adminController);
-                        break;
-                    case 3:
-                        System.exit(0);
-                        break;
-                    default:
-                        System.out.println("Invalid selection. Please try again.");
-                        break;
+                PersonViewFactory viewFactory = new PersonViewFactory();
+                IPersonView view = viewFactory.createView(selection, userController, adminController);
+                if(view != null) {
+                    view.run();
+                }
+                else {
+                    System.out.println("Invalid selection!");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Incorrect passsword!");
