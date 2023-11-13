@@ -1,4 +1,4 @@
-package org.example.strategy;
+package org.example.utils;
 
 import org.example.model.GrowthStock;
 import org.example.model.Stock;

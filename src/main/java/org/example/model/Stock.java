@@ -1,7 +1,7 @@
 package org.example.model;
 
-import org.example.strategy.GrowthStockValuationStrategy;
-import org.example.strategy.StockValuationStrategy;
+import org.example.utils.GrowthStockValuationStrategy;
+import org.example.utils.StockValuationStrategy;
 
 public class Stock {
     private int id;
