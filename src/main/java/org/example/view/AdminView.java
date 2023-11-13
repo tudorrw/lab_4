@@ -1,11 +1,12 @@
 package org.example.view;
 
 import org.example.controller.AdminController;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class AdminView {
+public class AdminView implements IPersonView{
     private AdminController adminController;
 
     public AdminView(AdminController adminController) {
@@ -17,6 +18,7 @@ public class AdminView {
         System.out.println("1 - See all users");
         System.out.println("2 - Delete users");
     }
+    @Override
     public void run() {
         Scanner input = new Scanner(System.in);
         int selection = 0;
