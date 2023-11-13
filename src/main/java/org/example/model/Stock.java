@@ -1,5 +1,8 @@
 package org.example.model;
 
+import org.example.strategy.GrowthStockValuationStrategy;
+import org.example.strategy.StockValuationStrategy;
+
 public class Stock {
     private int id;
     private String name;
@@ -7,12 +10,16 @@ public class Stock {
     private int companyId;
     private int marketId;
 
+    private StockValuationStrategy valuationStrategy;
+
+
     public Stock(int id, String name, int price, int company_, int market_) {
         this.id = id;
         this.name = name;
         this.price = price;
         companyId = company_;
         marketId = market_;
+        this.valuationStrategy = new GrowthStockValuationStrategy();
     }
 
     public int getId() {
@@ -54,4 +61,13 @@ public class Stock {
     public void setMarketId(int market_) {
         marketId = market_;
     }
+
+    public void setValuationStrategy(StockValuationStrategy valuationStrategy) {
+        this.valuationStrategy = valuationStrategy;
+    }
+
+    public double calculateValue() {
+        return valuationStrategy.calculatePossibleProfit(this);
+    }
 }
+
