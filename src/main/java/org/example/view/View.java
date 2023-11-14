@@ -14,9 +14,10 @@ public class View {
     CompanyController companyController;
     MarketController marketController;
 
-    public View(UserController userController, AdminController adminController) {
+    public View(UserController userController, AdminController adminController, CompanyController companyController) {
         this.userController = userController;
         this.adminController = adminController;
+        this.companyController = companyController;
     }
 
     public void displayMenu() {

@@ -38,9 +38,14 @@ public class AdminView implements IPersonView {
     }
 
     private void displayMenuForStocks() {
-        System.out.println("2 - Delete stock");
-        System.out.println("3 - See all stocks");
-        System.out.println("4 - Update stock");
+        System.out.println("1 - Add growth stock");
+        System.out.println("2 - Add value stock");
+        System.out.println("2 - Delete growth stock");
+        System.out.println("2 - Delete growth stock");
+        System.out.println("3 - See all growth stocks");
+        System.out.println("3 - See all value stocks");
+        System.out.println("4 - Update growth stock");
+        System.out.println("4 - Update value stock");
         System.out.println("5 - Back to main menu");
     }
 
@@ -100,12 +105,11 @@ public class AdminView implements IPersonView {
     private void handleUserMenu() {
         Scanner input = new Scanner(System.in);
         int adminSelection = 0;
-
+        UserView userView = new UserView(userController);
         while (adminSelection != 5) {
             displayMenuForUsers();
             try {
                 adminSelection = input.nextInt();
-                UserView userView = new UserView(userController);
                 switch (adminSelection) {
                     case 1:
                         System.out.println("Add user functionality");
@@ -181,7 +185,7 @@ public class AdminView implements IPersonView {
     private void handleCompaniesMenu() {
         Scanner input = new Scanner(System.in);
         int adminSelection = 0;
-
+        CompanyView companyView = new CompanyView(companyController);
         while (adminSelection != 5) {
             displayMenuForCompanies();
             try {
@@ -190,8 +194,7 @@ public class AdminView implements IPersonView {
                 switch (adminSelection) {
                     case 1:
                         System.out.println("Add company functionality");
-                        CompanyView companyView = new CompanyView(companyController);
-                        companyView.add_company();
+                        companyView.add();
                         break;
                     case 2:
                         System.out.println("Delete company functionality");
@@ -199,7 +202,7 @@ public class AdminView implements IPersonView {
                         break;
                     case 3:
                         System.out.println("See all companies functionality");
-                        // Implement see all users functionality
+                        companyView.getAllCompanies();
                         break;
                     case 4:
                         System.out.println("Update company functionality");

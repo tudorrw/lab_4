@@ -2,12 +2,14 @@ package org.example.controller;
 
 import org.example.model.Admin;
 import org.example.repo.AdminRepository;
+import org.example.repo.IRepository;
+
 import java.util.List;
 
 public class AdminController {
-    private AdminRepository adminRepository;
+    private IRepository<Admin> adminRepository;
     private int adminIdCounter;
-    public AdminController(AdminRepository adminRepository) {
+    public AdminController(IRepository<Admin> adminRepository) {
         this.adminRepository = adminRepository;
         this.adminIdCounter = adminRepository.getObjects().size() + 1;
     }

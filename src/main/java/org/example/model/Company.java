@@ -3,9 +3,9 @@ package org.example.model;
 public class Company {
     private int id;
     private String name;
-    private int capitalization;
+    private long capitalization;
 
-    public Company(int id, String name, int capitalization) {
+    public Company(int id, String name, long capitalization) {
         this.id = id;
         this.name = name;
         this.capitalization = capitalization;
@@ -27,7 +27,7 @@ public class Company {
         this.name = name;
     }
 
-    public int getCapitalization() {
+    public long getCapitalization() {
         return capitalization;
     }
 

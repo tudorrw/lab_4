@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import org.example.repo.IRepository;
 import org.example.repo.UserRepository;
 import org.example.model.User;
 
@@ -7,16 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserController {
-    private final UserRepository userRepository;
+    private final IRepository<User> userIRepository;
     private int userIdCounter;
 
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-        this.userIdCounter = userRepository.getObjects().size() + 1;
+    public UserController(IRepository<User> userIRepository) {
+        this.userIRepository = userIRepository;
+        this.userIdCounter = userIRepository.getObjects().size() + 1;
     }
 
     public User findUser(String username, String password) {
-        List<User> database = userRepository.getObjects();
+        List<User> database = userIRepository.getObjects();
         for(User user: database) {
             if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 return user;
@@ -25,7 +26,7 @@ public class UserController {
         return null;
     }
     public User findUser(String username) {
-        List<User> database = userRepository.getObjects();
+        List<User> database = userIRepository.getObjects();
         for(User user: database) {
             if(user.getUsername().equals(username)) {
                 return user;
@@ -39,7 +40,7 @@ public class UserController {
             return false;
         }
         User newUser = new User(userIdCounter++, username, password);
-        userRepository.save(newUser);
+        userIRepository.save(newUser);
         return true;
     }
 
@@ -52,7 +53,7 @@ public class UserController {
         if(user == null) {
             return false;
         }
-        userRepository.delete(user);
+        userIRepository.delete(user);
         return true;
     }
     public boolean deleteUser(String username) {
@@ -60,11 +61,11 @@ public class UserController {
         if(user == null) {
             return false;
         }
-        userRepository.delete(user);
+        userIRepository.delete(user);
         return true;
     }
     public List<User> showAllUsers() {
-         return userRepository.getObjects();
+         return userIRepository.getObjects();
 
     }
 

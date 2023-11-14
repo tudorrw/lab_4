@@ -6,26 +6,28 @@ import org.example.repo.IRepository;
 import java.util.List;
 
 public class CompanyController {
-    private IRepository<Company> repository;
+    private IRepository<Company> companyIRepository;
+    private int companyIdCounter;
 
-    public CompanyController(IRepository<Company> repository) {
-        this.repository = repository;
+    public CompanyController(IRepository<Company> companyIRepository) {
+
+        this.companyIRepository = companyIRepository;
+        this.companyIdCounter = companyIRepository.getObjects().size();
+
     }
 
-    public boolean addCompany(int id, String name, int capitalization){
-        if(!this.searchCompanyBool(id)) {
-            repository.save(new Company(id, name, capitalization));
+    public boolean addCompany(String name, long capitalization){
+        if(!this.searchCompanyBool(name)) {
+            companyIRepository.save(new Company(companyIdCounter++, name, capitalization));
             return true;
         }
-        else{
-            return false;
-        }
+        return false;
     }
 
-    public boolean removeCompany(int id){
-        Company search = this.searchCompany(id);
+    public boolean removeCompany(String name){
+        Company search = this.searchCompany(name);
         if(search != null) {
-            repository.delete(search);
+            companyIRepository.delete(search);
             return true;
         }
         else{
@@ -34,23 +36,23 @@ public class CompanyController {
     }
 
     public List<Company> getAll(){
-        return repository.getObjects();
+        return companyIRepository.getObjects();
     }
 
-    public boolean searchCompanyBool(int id){
-        List<Company> companies = repository.getObjects();
+    public boolean searchCompanyBool(String name){
+        List<Company> companies = companyIRepository.getObjects();
         for (Company company: companies) {
-            if(company.getId() == id){
+            if(company.getName().equals(name)){
                 return true;
             }
         }
         return false;
     }
 
-    public Company searchCompany(int id){
-        List<Company> companies = repository.getObjects();
+    public Company searchCompany(String name){
+        List<Company> companies = companyIRepository.getObjects();
         for (Company company: companies) {
-            if(company.getId() == id){
+            if(company.getName().equals(name)){
                 return company;
             }
         }
