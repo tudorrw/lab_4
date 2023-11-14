@@ -5,10 +5,12 @@ import org.example.model.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TransactionRepository implements IRepository<Transaction> {
+public class TransactionRepository implements IRepository<Transaction>{
     private List<Transaction> transactions;
+    private static TransactionRepository instance;
 
-    public TransactionRepository() {
+
+    private TransactionRepository() {
         this.transactions = new ArrayList<>();
     }
 
@@ -25,5 +27,13 @@ public class TransactionRepository implements IRepository<Transaction> {
     @Override
     public void delete(Transaction object) {
         transactions.remove(object);
+    }
+
+
+    public static TransactionRepository getInstance() {
+        if (instance == null) {
+            instance = new TransactionRepository();
+        }
+        return instance;
     }
 }

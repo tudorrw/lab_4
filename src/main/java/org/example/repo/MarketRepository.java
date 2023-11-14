@@ -1,20 +1,21 @@
 package org.example.repo;
 
 import org.example.model.Market;
+import org.example.model.ValueStock;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MarketRepository implements IRepository<Market> {
+public class MarketRepository implements IRepository<Market>{
     private List<Market> markets;
-
+    private static MarketRepository instance;
     void insert_values() {
         Market usMarket = new Market(1, "US Stock Market", "New York");
         Market euMarket = new Market(2, "EU Stock Market", "London");
         markets.add(usMarket);
         markets.add(euMarket);
     }
-    public MarketRepository() {
+    private MarketRepository() {
 
         this.markets = new ArrayList<>();
         insert_values();
@@ -33,5 +34,13 @@ public class MarketRepository implements IRepository<Market> {
     @Override
     public void delete(Market object) {
         markets.remove(object);
+    }
+
+
+    public static MarketRepository getInstance() {
+        if (instance == null) {
+            instance = new MarketRepository();
+        }
+        return instance;
     }
 }

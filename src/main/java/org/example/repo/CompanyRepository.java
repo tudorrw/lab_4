@@ -1,12 +1,15 @@
 package org.example.repo;
 
 import org.example.model.Company;
+import org.example.model.ValueStock;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CompanyRepository implements IRepository<Company> {
     private List<Company> companies;
+    private static CompanyRepository instance;
+
     void insert_values() {
         Company apple = new Company(1, "Apple Inc.", 2_000_000_000);
         Company boeing = new Company(2, "Boeing", 1_200_000_000);
@@ -15,7 +18,7 @@ public class CompanyRepository implements IRepository<Company> {
         companies.add(boeing);
         companies.add(intel);
     }
-    public CompanyRepository() {
+    private CompanyRepository() {
 
         this.companies = new ArrayList<>();
         insert_values();
@@ -34,5 +37,13 @@ public class CompanyRepository implements IRepository<Company> {
     @Override
     public void delete(Company object) {
         companies.remove(object);
+    }
+
+
+    public static CompanyRepository getInstance() {
+        if (instance == null) {
+            instance = new CompanyRepository();
+        }
+        return instance;
     }
 }

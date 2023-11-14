@@ -5,10 +5,11 @@ import org.example.model.ValueStock;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ValueStockRepository implements IRepository<ValueStock> {
+public class ValueStockRepository implements IRepository<ValueStock>{
     private List<ValueStock> valueStocks;
+    private static ValueStockRepository instance;
 
-    public ValueStockRepository() {
+    private ValueStockRepository() {
         this.valueStocks = new ArrayList<>();
     }
 
@@ -25,5 +26,13 @@ public class ValueStockRepository implements IRepository<ValueStock> {
     @Override
     public void delete(ValueStock object) {
         valueStocks.remove(object);
+    }
+
+
+    public static ValueStockRepository getInstance() {
+        if (instance == null) {
+            instance = new ValueStockRepository();
+        }
+        return instance;
     }
 }

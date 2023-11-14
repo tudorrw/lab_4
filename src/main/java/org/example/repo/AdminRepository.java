@@ -7,8 +7,9 @@ import java.util.List;
 
 public class AdminRepository implements IRepository<Admin> {
     private List<Admin> admins;
+    private static AdminRepository instance;
 
-    public AdminRepository() {
+    private AdminRepository() {
         this.admins = new ArrayList<>();
     }
 
@@ -30,5 +31,12 @@ public class AdminRepository implements IRepository<Admin> {
     @Override
     public void delete(Admin object) {
         admins.remove(object);
+    }
+
+    public static AdminRepository getInstance() {
+        if (instance == null) {
+            instance = new AdminRepository();
+        }
+        return instance;
     }
 }

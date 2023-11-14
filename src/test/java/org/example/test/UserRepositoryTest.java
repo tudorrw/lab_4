@@ -12,7 +12,7 @@ class UserRepositoryTest {
 
     @BeforeEach
     void setUp(){
-        this.userRepository = new UserRepository();
+        this.userRepository = UserRepository.getInstance();
     }
 
     @Test

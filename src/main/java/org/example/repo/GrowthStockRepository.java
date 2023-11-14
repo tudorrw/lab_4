@@ -1,14 +1,16 @@
 package org.example.repo;
 
 import org.example.model.GrowthStock;
+import org.example.model.ValueStock;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GrowthStockRepository implements IRepository<GrowthStock> {
     private List<GrowthStock> growthStocks;
+    private static GrowthStockRepository instance;
 
-    public GrowthStockRepository() {
+    private GrowthStockRepository() {
         this.growthStocks = new ArrayList<>();
     }
 
@@ -25,5 +27,12 @@ public class GrowthStockRepository implements IRepository<GrowthStock> {
     @Override
     public void delete(GrowthStock object) {
         growthStocks.remove(object);
+    }
+
+    public static GrowthStockRepository getInstance() {
+        if (instance == null) {
+            instance = new GrowthStockRepository();
+        }
+        return instance;
     }
 }

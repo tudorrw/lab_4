@@ -5,8 +5,10 @@ import org.example.model.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRepository implements IRepository<User> {
+public class UserRepository implements IRepository<User>{
     private List<User> users;
+    private static UserRepository instance;
+
 
     void insert_values() {
         User user1 = new User(1, "tudor", "passwd");
@@ -18,7 +20,7 @@ public class UserRepository implements IRepository<User> {
         save(user3);
         save(user4);
     }
-    public UserRepository() {
+    private UserRepository() {
         this.users = new ArrayList<>();
         insert_values();
     }
@@ -44,5 +46,13 @@ public class UserRepository implements IRepository<User> {
     @Override
     public void delete(User object) {
         users.remove(object);
+    }
+
+
+    public static UserRepository getInstance() {
+        if (instance == null) {
+            instance = new UserRepository();
+        }
+        return instance;
     }
 }

@@ -2,7 +2,7 @@ package org.example.view;
 
 
 import org.example.controller.*;
-import org.example.utils.PersonViewFactory;
+import org.example.utils.factory.PersonViewFactory;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

@@ -1,14 +1,16 @@
 package org.example.repo;
 
 import org.example.model.Notification;
+import org.example.model.ValueStock;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class NotificationRepository implements IRepository<Notification> {
     private List<Notification> notifications;
+    private static NotificationRepository instance;
 
-    public NotificationRepository() {
+    private NotificationRepository() {
         this.notifications = new ArrayList<>();
     }
 
@@ -25,5 +27,13 @@ public class NotificationRepository implements IRepository<Notification> {
     @Override
     public void delete(Notification object) {
         notifications.remove(object);
+    }
+
+
+    public static NotificationRepository getInstance() {
+        if (instance == null) {
+            instance = new NotificationRepository();
+        }
+        return instance;
     }
 }

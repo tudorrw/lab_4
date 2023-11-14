@@ -4,11 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="view on company and market">
+    <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="add some functionality to adminview - user crud operations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/ValueStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/ValueStock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/ValueStockValuationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/ValueStockValuationStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/test2/StrategyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/test2/StrategyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/AdminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/AdminRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/CompanyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/GrowthStockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/GrowthStockRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/MarketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/MarketRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/NotificationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/NotificationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/PortfolioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/PortfolioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/StockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/StockRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/TransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/TransactionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/ValueStockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/ValueStockRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/PersonViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/factory/PersonViewFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/test/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/test/UserRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +30,8 @@
       <list>
         <option value="Enum" />
         <option value="JUnit5 Test Class" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -63,35 +73,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ToolWindowCommit.ShowToolbar": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/tudor/Ubb_Stuff/3_semester/MAP/lab/lab_3",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "onboarding.tips.debug.path": "/Users/tudor/Ubb_Stuff/3_semester/MAP/lab/lab_2/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ToolWindowCommit.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/tudor/Ubb_Stuff/3_semester/MAP/lab/lab_3&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/tudor/Ubb_Stuff/3_semester/MAP/lab/lab_2/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory",
-      "module"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -153,7 +163,7 @@
       <workItem from="1699209319012" duration="10867000" />
       <workItem from="1699339261666" duration="1553000" />
       <workItem from="1699813998152" duration="12295000" />
-      <workItem from="1699910397005" duration="24151000" />
+      <workItem from="1699910397005" duration="17574000" />
     </task>
     <task id="LOCAL-00001" summary="creating lab_2&#10;-implementation of model entities&#10;-crating packages for MVC&#10;-crating repo interfac">
       <option name="closed" value="true" />
@@ -283,31 +293,7 @@
       <option name="project" value="LOCAL" />
       <updated>1699966831263</updated>
     </task>
-    <task id="LOCAL-00017" summary="functionality to CompanyView">
-      <option name="closed" value="true" />
-      <created>1699986448495</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1699986448495</updated>
-    </task>
-    <task id="LOCAL-00018" summary="strategy stocks">
-      <option name="closed" value="true" />
-      <created>1699991783930</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1699991783930</updated>
-    </task>
-    <task id="LOCAL-00019" summary="view on company and market">
-      <option name="closed" value="true" />
-      <created>1699991853122</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1699991853122</updated>
-    </task>
-    <option name="localTasksCounter" value="20" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,10 +360,7 @@
     <MESSAGE value="create Strategy on stocks" />
     <MESSAGE value="move all design pattern classes in the utils package" />
     <MESSAGE value="add some functionality to adminview - user crud operations" />
-    <MESSAGE value="functionality to CompanyView" />
-    <MESSAGE value="strategy stocks" />
-    <MESSAGE value="view on company and market" />
-    <option name="LAST_COMMIT_MESSAGE" value="view on company and market" />
+    <option name="LAST_COMMIT_MESSAGE" value="add some functionality to adminview - user crud operations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

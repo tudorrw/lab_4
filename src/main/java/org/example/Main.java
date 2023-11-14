@@ -13,10 +13,10 @@ import org.example.view.View;
 
 public class Main {
     public static void main(String[] args) {
-        IRepository<User> userRepo = new UserRepository();
-        IRepository<Admin> adminRepo = new AdminRepository();
-        IRepository<Company> companyRepo = new CompanyRepository();
-        IRepository<Market> marketRepo = new MarketRepository();
+        IRepository<User> userRepo = UserRepository.getInstance();
+        IRepository<Admin> adminRepo = AdminRepository.getInstance();
+        IRepository<Company> companyRepo = CompanyRepository.getInstance();
+        IRepository<Market> marketRepo = MarketRepository.getInstance();
         UserController userController = new UserController(userRepo);
         AdminController adminController = new AdminController(adminRepo);
         CompanyController companyController = new CompanyController(companyRepo);

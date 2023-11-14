@@ -1,4 +1,4 @@
-package org.example.utils;
+package org.example.utils.factory;
 
 import org.example.controller.*;
 import org.example.view.AdminView;
