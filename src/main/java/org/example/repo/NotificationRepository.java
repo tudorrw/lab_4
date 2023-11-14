@@ -25,6 +25,11 @@ public class NotificationRepository implements IRepository<Notification> {
     }
 
     @Override
+    public void update(Notification entity, String action) {
+
+    }
+
+    @Override
     public void delete(Notification object) {
         notifications.remove(object);
     }

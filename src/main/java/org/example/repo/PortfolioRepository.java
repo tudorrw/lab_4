@@ -25,6 +25,11 @@ public class PortfolioRepository implements IRepository<Portfolio>{
     }
 
     @Override
+    public void update(Portfolio entity, String action) {
+
+    }
+
+    @Override
     public void delete(Portfolio object) {
         portfolios.remove(object);
     }

@@ -27,6 +27,11 @@ public class ValueStockRepository implements IRepository<ValueStock> {
     }
 
     @Override
+    public void update(ValueStock entity, String action) {
+
+    }
+
+    @Override
     public void delete(ValueStock object) {
         valueStocks.remove(object);
     }

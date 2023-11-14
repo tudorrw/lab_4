@@ -25,6 +25,11 @@ public class TransactionRepository implements IRepository<Transaction>{
     }
 
     @Override
+    public void update(Transaction entity, String action) {
+
+    }
+
+    @Override
     public void delete(Transaction object) {
         transactions.remove(object);
     }

@@ -21,7 +21,6 @@ public class Company implements Observable {
                 ", name='" + name + '\'' +
                 ", capitalization=" + capitalization +
                 ", numberShares=" + numberShares +
-                ", observers=" + observers +
                 '}';
     }
 

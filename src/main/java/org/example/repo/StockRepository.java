@@ -27,6 +27,11 @@ public class StockRepository implements IRepository<Stock> {
     }
 
     @Override
+    public void update(Stock entity, String action) {
+
+    }
+
+    @Override
     public void delete(Stock object) {
         stocks.remove(object);
     }

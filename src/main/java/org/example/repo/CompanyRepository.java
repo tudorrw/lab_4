@@ -4,6 +4,7 @@ import org.example.model.Company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class CompanyRepository implements IRepository<Company> {
     private List<Company> companies;
@@ -31,6 +32,22 @@ public class CompanyRepository implements IRepository<Company> {
     @Override
     public void save(Company entity) {
         companies.add(entity);
+    }
+
+    @Override
+    public void update(Company entity, String action) {
+
+    }
+
+
+    public void update(Company entity, String action, long number) {
+        if(Objects.equals(action, "capitalization")){
+            entity.setCapitalization(number);
+        }
+        if(Objects.equals(action, "numberShares")){
+            entity.setNumberShares(number);
+        }
+
     }
 
     @Override

@@ -1,15 +1,18 @@
 package org.example.controller;
 
 import org.example.model.Company;
+import org.example.repo.CompanyRepository;
 import org.example.repo.IRepository;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CompanyController {
-    private IRepository<Company> companyIRepository;
+//    private IRepository<Company> companyIRepository;
+    private CompanyRepository companyIRepository;
     private int companyIdCounter;
 
-    public CompanyController(IRepository<Company> companyIRepository) {
+    public CompanyController(CompanyRepository companyIRepository) {
 
         this.companyIRepository = companyIRepository;
         this.companyIdCounter = companyIRepository.getObjects().size();
@@ -56,5 +59,16 @@ public class CompanyController {
             }
         }
         return null;
+    }
+
+    public boolean updateCompany(String companyName, String action, long number) {
+        Company search = this.searchCompany(companyName);
+        if(search != null) {
+            companyIRepository.update(search,action,number);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

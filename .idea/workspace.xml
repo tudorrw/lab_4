@@ -4,28 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="Implemented Singleton Pattern for Repos">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/observer/Observable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/observer/Observer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/test2/ObserverTest.java" afterDir="false" />
+    <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="Implemented Observer Pattern for Company and Stocks, and made a few changes to domain for the stocks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/CompanyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/GrowthStockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/GrowthStockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/StockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ValueStockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ValueStockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/GrowthStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/GrowthStock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Stock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/ValueStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/ValueStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/AdminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/AdminRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/CompanyRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/GrowthStockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/GrowthStockRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/IRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/IRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/MarketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/MarketRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/NotificationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/NotificationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/PortfolioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/PortfolioRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/StockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/StockRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/TransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/TransactionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/ValueStockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/ValueStockRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/AdminView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/CompanyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/CompanyView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/test/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/test/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/test2/StrategyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/test2/StrategyTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -364,7 +359,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699997280778</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Implemented Observer Pattern for Company and Stocks, and made a few changes to domain for the stocks">
+      <option name="closed" value="true" />
+      <created>1700004043922</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1700004044021</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +435,8 @@
     <MESSAGE value="move all design pattern classes in the utils package" />
     <MESSAGE value="add some functionality to adminview - user crud operations" />
     <MESSAGE value="Implemented Singleton Pattern for Repos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented Singleton Pattern for Repos" />
+    <MESSAGE value="Implemented Observer Pattern for Company and Stocks, and made a few changes to domain for the stocks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented Observer Pattern for Company and Stocks, and made a few changes to domain for the stocks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

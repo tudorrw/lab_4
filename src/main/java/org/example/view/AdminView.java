@@ -206,7 +206,7 @@ public class AdminView implements IPersonView {
                         break;
                     case 4:
                         System.out.println("Update company functionality");
-                        // Implement update user functionality
+                        companyView.updateCompany();
                         break;
                     case 5:
                         System.out.println("Back to main menu.");

@@ -19,7 +19,7 @@ public class Main {
         IRepository<Market> marketRepo = MarketRepository.getInstance();
         UserController userController = new UserController(userRepo);
         AdminController adminController = new AdminController(adminRepo);
-        CompanyController companyController = new CompanyController(companyRepo);
+        CompanyController companyController = new CompanyController(CompanyRepository.getInstance());
         MarketController marketController = new MarketController(marketRepo);
         View view = new View(userController, adminController, companyController, marketController);
         view.run();

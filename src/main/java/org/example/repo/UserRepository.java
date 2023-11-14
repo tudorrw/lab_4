@@ -38,6 +38,11 @@ public class UserRepository implements IRepository<User>{
         users.add(user);
     }
 
+    @Override
+    public void update(User entity, String action) {
+
+    }
+
 //    @Override
 //    public void update(User user) {
 //

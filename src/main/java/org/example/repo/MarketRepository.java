@@ -36,6 +36,11 @@ public class MarketRepository implements IRepository<Market>{
     }
 
     @Override
+    public void update(Market entity, String action) {
+
+    }
+
+    @Override
     public void delete(Market object) {
         markets.remove(object);
     }

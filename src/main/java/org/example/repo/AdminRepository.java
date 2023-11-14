@@ -23,10 +23,10 @@ public class AdminRepository implements IRepository<Admin> {
         admins.add(entity);
     }
 
-//    @Override
-//    public void update(Admin entity) {
-//
-//    }
+    @Override
+    public void update(Admin entity, String action) {
+
+    }
 
     @Override
     public void delete(Admin object) {
