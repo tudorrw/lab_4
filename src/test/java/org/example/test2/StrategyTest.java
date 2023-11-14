@@ -2,23 +2,26 @@ package org.example.test2;
 
 import org.example.model.GrowthStock;
 import org.example.model.ValueStock;
-import org.example.utils.GrowthStockValuationStrategy;
-import org.example.utils.StockProfit;
-import org.example.utils.StockValuationStrategy;
-import org.example.utils.ValueStockValuationStrategy;
+import org.example.utils.strategy.GrowthStockValuationStrategy;
+import org.example.utils.strategy.StockProfit;
+import org.example.utils.strategy.ValueStockValuationStrategy;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;;
 
 public class StrategyTest {
-    public static void main(String[] args) {
+    @Test
+    void calculate() {
         GrowthStock growthStock = new GrowthStock(1, "GrowthStock", 100, 1, 1, 10);
-        ValueStock valueStock = new ValueStock(2, "ValueStock", 100, 2, 2, 2);
+        ValueStock valueStock = new ValueStock(2, "ValueStock", 100, 2, 2, 0.2);
 
         StockProfit stockProfit = new StockProfit();
         stockProfit.setStrategy(new GrowthStockValuationStrategy());
         double profit = stockProfit.calculateProfit(growthStock);
-        System.out.println(profit);
+        assertEquals(110.0, profit);
 
         stockProfit.setStrategy(new ValueStockValuationStrategy());
         profit = stockProfit.calculateProfit(valueStock);
-        System.out.println(profit);
+        assertEquals(120.0, profit);
     }
 }

@@ -1,6 +1,7 @@
-package org.example.utils;
+package org.example.utils.strategy;
 
 import org.example.model.Stock;
+import org.example.utils.strategy.StockValuationStrategy;
 
 public class StockProfit {
     private StockValuationStrategy strategy;

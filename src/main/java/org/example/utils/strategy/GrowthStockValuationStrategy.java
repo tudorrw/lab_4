@@ -1,7 +1,8 @@
-package org.example.utils;
+package org.example.utils.strategy;
 
 import org.example.model.GrowthStock;
 import org.example.model.Stock;
+import org.example.utils.strategy.StockValuationStrategy;
 
 public class GrowthStockValuationStrategy implements StockValuationStrategy {
     @Override
