@@ -13,7 +13,7 @@ class UserControllerTest {
 
     @BeforeEach
     void setUp() {
-        this.userRepository = new UserRepository();
+        this.userRepository = UserRepository.getInstance();
         this.userController = new UserController(userRepository);
 
     }

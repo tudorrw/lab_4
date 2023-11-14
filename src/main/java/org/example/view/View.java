@@ -36,8 +36,7 @@ public class View {
             displayMenu();
             try {
                 selection = input.nextInt();
-                PersonViewFactory viewFactory = new PersonViewFactory();
-                IPersonView view = viewFactory.createView(selection, userController, adminController, stockController, companyController, marketController);
+                IPersonView view = PersonViewFactory.createView(selection, userController, adminController, stockController, companyController, marketController);
                 if(view != null) {
                     view.run();
                 }

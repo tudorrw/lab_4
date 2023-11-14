@@ -4,21 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="add some functionality to adminview - user crud operations">
+    <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="Implemented Singleton Pattern for Repos">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/observer/Observable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/observer/Observer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/test2/ObserverTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/AdminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/AdminRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/GrowthStockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/GrowthStockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/StockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ValueStockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ValueStockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/GrowthStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/GrowthStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Stock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/ValueStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/ValueStock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/CompanyRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/GrowthStockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/GrowthStockRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/MarketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/MarketRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/NotificationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/NotificationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/PortfolioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/PortfolioRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/StockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/StockRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/TransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/TransactionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/ValueStockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/ValueStockRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/PersonViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/factory/PersonViewFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/CompanyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/CompanyView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/test/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/test/UserRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/test/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/test/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/test2/StrategyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/test2/StrategyTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +37,8 @@
       <list>
         <option value="Enum" />
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -50,8 +57,8 @@
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
-        <option name="accountId" value="3a0a1070-c067-41b6-a74d-8c0bfc503331" />
-        <option name="url" value="https://github.com/tudorrw/lab_3.git" />
+        <option name="accountId" value="585967d7-3d52-44ac-a984-284c7b139cc0" />
+        <option name="url" value="https://github.com/tudorrw/lab_3" />
       </UrlAndAccount>
     </option>
   </component>
@@ -110,7 +117,7 @@
       <recent name="org.example.test" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="lab_2" />
@@ -120,6 +127,58 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in lab_2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab_2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ObserverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.test2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.test2" />
+      <option name="MAIN_CLASS_NAME" value="org.example.test2.ObserverTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StrategyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.test2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.test2" />
+      <option name="MAIN_CLASS_NAME" value="org.example.test2.StrategyTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="org.example.test2 in lab_2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.test2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.test2" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -140,6 +199,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.org.example.test2 in lab_2" />
+        <item itemvalue="JUnit.All in lab_2" />
+        <item itemvalue="JUnit.ObserverTest" />
+        <item itemvalue="JUnit.StrategyTest" />
       </list>
     </recent_temporary>
   </component>
@@ -293,7 +356,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699966831263</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Implemented Singleton Pattern for Repos">
+      <option name="closed" value="true" />
+      <created>1699997280778</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1699997280778</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,7 +431,8 @@
     <MESSAGE value="create Strategy on stocks" />
     <MESSAGE value="move all design pattern classes in the utils package" />
     <MESSAGE value="add some functionality to adminview - user crud operations" />
-    <option name="LAST_COMMIT_MESSAGE" value="add some functionality to adminview - user crud operations" />
+    <MESSAGE value="Implemented Singleton Pattern for Repos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented Singleton Pattern for Repos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

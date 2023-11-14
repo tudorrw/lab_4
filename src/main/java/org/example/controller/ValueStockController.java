@@ -1,5 +1,7 @@
 package org.example.controller;
 
+import org.example.model.Company;
+import org.example.model.Market;
 import org.example.model.ValueStock;
 import org.example.repo.IRepository;
 
@@ -12,9 +14,9 @@ public class ValueStockController {
         this.repository = repository;
     }
 
-    public boolean addValueStock(int id, String name, int price,int companyId, int marketId, int divident){
+    public boolean addValueStock(int id, String name, Company company, Market market, int dividend){
         if(!this.searchValueStockBool(id)) {
-            repository.save(new ValueStock(id, name, price,companyId,marketId,divident));
+            repository.save(new ValueStock(id, name,company,market,dividend));
             return true;
         }
         else{

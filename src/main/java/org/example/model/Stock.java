@@ -1,25 +1,28 @@
 package org.example.model;
 
+import org.example.utils.observer.Observer;
 import org.example.utils.strategy.GrowthStockValuationStrategy;
 import org.example.utils.strategy.StockValuationStrategy;
 
-public class Stock {
+public class Stock implements Observer {
     private int id;
     private String name;
-    private int price;
-    private int companyId;
-    private int marketId;
+    private float price;
+    private Company company;
+    private Market market;
 
     private StockValuationStrategy valuationStrategy;
 
 
-    public Stock(int id, String name, int price, int company_, int market_) {
+
+    public Stock(int id, String name, Company company_, Market market_) {
         this.id = id;
         this.name = name;
-        this.price = price;
-        companyId = company_;
-        marketId = market_;
+        this.company = company_;
+        this.market = market_;
+        this.price = (float) company.getCapitalization()/company.getNumberShares();
         this.valuationStrategy = new GrowthStockValuationStrategy();
+        this.company.registerObserver(this);
     }
 
     public int getId() {
@@ -38,28 +41,28 @@ public class Stock {
         this.name = name;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    private void setPrice() {
+        this.price = (float) this.company.getCapitalization()/this.company.getNumberShares();
     }
 
-    public int getCompanyId() {
-        return companyId;
+    public Company getCompany() {
+        return company;
     }
 
-    public void setCompanyId(int company_) {
-        companyId = company_;
+    public void setCompany(Company company_) {
+        company = company_;
     }
 
-    public int getmarket() {
-        return marketId;
+    public Market getmarket() {
+        return market;
     }
 
-    public void setMarketId(int market_) {
-        marketId = market_;
+    public void setMarket(Market market_) {
+        market = market_;
     }
 
     public void setValuationStrategy(StockValuationStrategy valuationStrategy) {
@@ -68,6 +71,11 @@ public class Stock {
 
     public double calculateValue() {
         return valuationStrategy.calculatePossibleProfit(this);
+    }
+
+    @Override
+    public void update() {
+        this.setPrice();
     }
 }
 

@@ -1,11 +1,13 @@
 package org.example.repo;
 
+import org.example.model.Company;
 import org.example.model.Stock;
+import org.example.utils.observer.Observer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class StockRepository implements IRepository<Stock>{
+public class StockRepository implements IRepository<Stock> {
     private List<Stock> stocks;
     private static StockRepository instance;
 
@@ -35,4 +37,6 @@ public class StockRepository implements IRepository<Stock>{
         }
         return instance;
     }
+
+
 }

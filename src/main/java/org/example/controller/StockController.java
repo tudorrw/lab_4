@@ -1,6 +1,8 @@
 package org.example.controller;
 
 
+import org.example.model.Company;
+import org.example.model.Market;
 import org.example.model.Stock;
 import org.example.repo.IRepository;
 
@@ -13,9 +15,9 @@ public class StockController {
         this.repository = repository;
     }
 
-    public boolean addStock(int id, String name, int price,int companyId, int marketId){
+    public boolean addStock(int id, String name, Company company, Market market){
         if(!this.searchStockBool(id)) {
-            repository.save(new Stock(id, name, price,companyId,marketId));
+            repository.save(new Stock(id, name, company,market));
             return true;
         }
         else{

@@ -1,6 +1,8 @@
 package org.example.controller;
 
+import org.example.model.Company;
 import org.example.model.GrowthStock;
+import org.example.model.Market;
 import org.example.repo.IRepository;
 
 import java.util.List;
@@ -12,9 +14,9 @@ public class GrowthStockController {
         this.repository = repository;
     }
 
-    public boolean addGrowthStock(int id, String name, int price,int companyId, int marketId, int growth_rate){
+    public boolean addGrowthStock(int id, String name, Company company, Market market, int growth_rate){
         if(!this.searchGrowthStockBool(id)) {
-            repository.save(new GrowthStock(id, name, price,companyId,marketId,growth_rate));
+            repository.save(new GrowthStock(id, name, company,market,growth_rate));
             return true;
         }
         else{

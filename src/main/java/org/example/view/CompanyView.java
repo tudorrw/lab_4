@@ -22,11 +22,20 @@ public class CompanyView {
             return;
         }
 
+        long numberShares = 1;
+        System.out.print("Enter company number of shares: ");
+        try {
+            numberShares = input.nextLong();
+            System.out.println(numberShares);
+        } catch(InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a number.");
+        }
+
         System.out.print("Enter company capitalization: ");
         try {
             long capitalization = input.nextLong();
             System.out.println(capitalization);
-            if (!companyController.addCompany(companyName, capitalization)) {
+            if (!companyController.addCompany(companyName, capitalization, numberShares)) {
                 System.out.println("Invalid capitalization!");
             }
             else {

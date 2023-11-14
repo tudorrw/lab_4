@@ -15,9 +15,9 @@ public class CompanyController {
         this.companyIdCounter = companyIRepository.getObjects().size();
     }
 
-    public boolean addCompany(String name, long capitalization){
+    public boolean addCompany(String name, long capitalization, long numberShares){
         if(!this.searchCompanyBool(name)) {
-            companyIRepository.save(new Company(companyIdCounter++, name, capitalization));
+            companyIRepository.save(new Company(companyIdCounter++, name, capitalization, numberShares));
             return true;
         }
         return false;
