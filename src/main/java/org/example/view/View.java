@@ -1,8 +1,7 @@
 package org.example.view;
 
 
-import org.example.controller.AdminController;
-import org.example.controller.UserController;
+import org.example.controller.*;
 import org.example.utils.PersonViewFactory;
 
 import java.util.InputMismatchException;
@@ -11,6 +10,9 @@ import java.util.Scanner;
 public class View {
     UserController userController;
     AdminController adminController;
+    StockController stockController;
+    CompanyController companyController;
+    MarketController marketController;
 
     public View(UserController userController, AdminController adminController) {
         this.userController = userController;
@@ -33,7 +35,7 @@ public class View {
             try {
                 selection = input.nextInt();
                 PersonViewFactory viewFactory = new PersonViewFactory();
-                IPersonView view = viewFactory.createView(selection, userController, adminController);
+                IPersonView view = viewFactory.createView(selection, userController, adminController, stockController, companyController, marketController);
                 if(view != null) {
                     view.run();
                 }

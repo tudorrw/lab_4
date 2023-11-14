@@ -1,8 +1,10 @@
 package org.example.view;
 
 import org.example.controller.UserController;
+import org.example.model.User;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserView implements IPersonView{
@@ -31,15 +33,17 @@ public class UserView implements IPersonView{
 
                 switch (selection) {
                     case 1:
-                        register();
+                        String username = register();
+                        if(!username.isEmpty()) {
+                            dashboard(username);
+                        }
                         break;
                     case 2:
-                        logIn();
+                        login();
                         break;
                     case 3:
-                        System.exit(0);
+                        System.out.println("Exiting admin menu.");
                         break;
-
                     default:
                         System.out.println("Invalid selection. Please try again.");
                         break;
@@ -50,42 +54,43 @@ public class UserView implements IPersonView{
             }
         }
     }
-    public void register() {
+    public String register() {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter a username: ");
         String username = input.nextLine();
         if (username.isEmpty()) {
             System.out.println("Invalid username!");
-            return;
+            return "";
         }
 
         System.out.print("Enter a password: ");
         String password = input.nextLine();
         if(password.isEmpty()) {
             System.out.println("Invalid password!");
-            return;
+            return "";
         }
 
         System.out.print("Enter the password again: ");
         String passwordConfirmation = input.nextLine();
         if(passwordConfirmation.isEmpty()) {
             System.out.println("Invalid password confirmation!");
-            return;
+            return "";
         }
 
         if(!password.equals(passwordConfirmation)) {
             System.out.println("passwords given do not match");
-            return;
+            return "";
         }
         if(userController.createUser(username, password)) {
             System.out.println("Registered!");
-            dashboard(username);
+            return username;
         }
         else {
             System.out.println("This username already exists!");
         }
+        return "";
     }
-    public void logIn() {
+    public void login() {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter a username: ");
         String username = input.nextLine();
@@ -110,19 +115,19 @@ public class UserView implements IPersonView{
     }
 
     private void dashboardMenu() {
-        System.out.println("1. Search Stock");
-        System.out.println("2. Buy Stock");
-        System.out.println("3. Sell Stock");
-        System.out.println("4. Transaction History");
-        System.out.println("5. Change password");
-        System.out.println("6. Log out");
-        System.out.println("7. Delete account");
+        System.out.println("1 - Search Stock");
+        System.out.println("2 - Buy Stock");
+        System.out.println("3 - Sell Stock");
+        System.out.println("4 - Transaction History");
+        System.out.println("5 - Change password");
+        System.out.println("6 - Log out");
+        System.out.println("7 - Delete account");
     }
     private void dashboard(String username) {
         Scanner input = new Scanner(System.in);
         int selection = 0;
 
-        while (selection != 6) {
+        while (selection != 6 && selection != 7) {
             dashboardMenu();
             try {
                 selection = input.nextInt();
@@ -149,16 +154,7 @@ public class UserView implements IPersonView{
                         break;
                     case 7:
                         System.out.println("Do you want to delete your account?\nEnter your password to confirm");
-
-                        Scanner option = new Scanner(System.in);
-                        String password = option.nextLine();
-                        if(userController.deleteUser(username, password)){
-                            System.out.println("Account deleted successfully!");
-                            return;
-                        }
-                        else {
-                            System.out.println("Invalid input. Please try again.");
-                        }
+                        deleteUser(username);
                         break;
                     default:
                         System.out.println("Invalid selection. Please try again.");
@@ -168,6 +164,36 @@ public class UserView implements IPersonView{
                 System.out.println("Invalid input. Please enter a number.");
                 input.next();
             }
+        }
+    }
+
+    public void deleteUser(String username) {
+        Scanner option = new Scanner(System.in);
+        String password = option.nextLine();
+        if(userController.deleteUser(username, password)){
+            System.out.println("Account deleted successfully!");
+            return;
+        }
+        else {
+            System.out.println("Invalid input. Please try again.");
+        }
+    }
+    public void deleteUserForAdmin() {
+        Scanner option = new Scanner(System.in);
+        System.out.println("Enter an account you want to delete: ");
+        String username = option.nextLine();
+        if(userController.deleteUser(username)){
+            System.out.println("Account deleted successfully!");
+            return;
+        }
+        else {
+            System.out.println("Invalid input. Please try again.");
+        }
+    }
+    public void getAllUsers() {
+        List<User> users = userController.showAllUsers();
+        for(User user: users) {
+            System.out.println(user.toString());
         }
     }
 }

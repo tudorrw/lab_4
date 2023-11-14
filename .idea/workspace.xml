@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="create Strategy on stocks">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Stock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/strategy/GrowthStockValuationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/GrowthStockValuationStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/strategy/StockValuationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/StockValuationStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/strategy/ValueStockValuationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/ValueStockValuationStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/PersonViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/PersonViewFactory.java" afterDir="false" />
+    <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="move all design pattern classes in the utils package">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/view/CompanyView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/PersonViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/PersonViewFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/AdminView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/UserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/UserView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="factory-view" />
+        <entry key="$PROJECT_DIR$" value="strategy-stocks" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,7 +52,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -75,7 +76,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "strategy-stocks",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/tudor/Ubb_Stuff/3_semester/MAP/lab/lab_3",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -154,7 +155,8 @@
       <workItem from="1698824340569" duration="4220000" />
       <workItem from="1699209319012" duration="10867000" />
       <workItem from="1699339261666" duration="1553000" />
-      <workItem from="1699813998152" duration="10022000" />
+      <workItem from="1699813998152" duration="12295000" />
+      <workItem from="1699910397005" duration="12291000" />
     </task>
     <task id="LOCAL-00001" summary="creating lab_2&#10;-implementation of model entities&#10;-crating packages for MVC&#10;-crating repo interfac">
       <option name="closed" value="true" />
@@ -268,7 +270,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699902712493</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="move all design pattern classes in the utils package">
+      <option name="closed" value="true" />
+      <created>1699908369043</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1699908369043</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +310,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -333,7 +343,8 @@
     <MESSAGE value="changes run method at exception handlings" />
     <MESSAGE value="static method createView" />
     <MESSAGE value="create Strategy on stocks" />
-    <option name="LAST_COMMIT_MESSAGE" value="create Strategy on stocks" />
+    <MESSAGE value="move all design pattern classes in the utils package" />
+    <option name="LAST_COMMIT_MESSAGE" value="move all design pattern classes in the utils package" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

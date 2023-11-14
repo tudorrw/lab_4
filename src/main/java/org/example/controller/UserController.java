@@ -3,6 +3,7 @@ package org.example.controller;
 import org.example.repo.UserRepository;
 import org.example.model.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserController {
@@ -62,11 +63,9 @@ public class UserController {
         userRepository.delete(user);
         return true;
     }
-    public void showAllUsers() {
-        List<User> database = userRepository.getObjects();
-        for (User user: database) {
-            System.out.println(user.toString());
-        }
+    public List<User> showAllUsers() {
+         return userRepository.getObjects();
+
     }
 
 }
