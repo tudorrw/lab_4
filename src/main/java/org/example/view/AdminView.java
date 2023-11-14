@@ -198,7 +198,7 @@ public class AdminView implements IPersonView {
                         break;
                     case 2:
                         System.out.println("Delete company functionality");
-                        // Implement delete user functionality
+                        companyView.deleteCompany();
                         break;
                     case 3:
                         System.out.println("See all companies functionality");
@@ -225,7 +225,7 @@ public class AdminView implements IPersonView {
     private void handleMarketMenu() {
         Scanner input = new Scanner(System.in);
         int adminSelection = 0;
-
+        MarketView marketView = new MarketView(marketController);
         while (adminSelection != 5) {
             displayMenuForMarket();
             try {
@@ -234,15 +234,15 @@ public class AdminView implements IPersonView {
                 switch (adminSelection) {
                     case 1:
                         System.out.println("Add market functionality");
-                        // Implement add market functionality
+                        marketView.add();
                         break;
                     case 2:
                         System.out.println("Delete market functionality");
-                        // Implement delete market functionality
+                        marketView.deleteMarket();
                         break;
                     case 3:
                         System.out.println("See all markets functionality");
-                        // Implement see all markets functionality
+                        marketView.getAllMarkets();
                         break;
                     case 4:
                         System.out.println("Update market functionality");

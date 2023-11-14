@@ -5,6 +5,15 @@ public class Market {
     private String name;
     private String location;
 
+    @Override
+    public String toString() {
+        return "Market{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", location='" + location + '\'' +
+                '}';
+    }
+
     public Market(int id, String name, String location) {
         this.id = id;
         this.name = name;

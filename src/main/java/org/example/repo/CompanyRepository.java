@@ -11,6 +11,9 @@ public class CompanyRepository implements IRepository<Company> {
         Company apple = new Company(1, "Apple Inc.", 2_000_000_000);
         Company boeing = new Company(2, "Boeing", 1_200_000_000);
         Company intel = new Company(3, "Intel", 250_000_000);
+        companies.add(apple);
+        companies.add(boeing);
+        companies.add(intel);
     }
     public CompanyRepository() {
 

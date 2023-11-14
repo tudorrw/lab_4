@@ -8,8 +8,16 @@ import java.util.List;
 public class MarketRepository implements IRepository<Market> {
     private List<Market> markets;
 
+    void insert_values() {
+        Market usMarket = new Market(1, "US Stock Market", "New York");
+        Market euMarket = new Market(2, "EU Stock Market", "London");
+        markets.add(usMarket);
+        markets.add(euMarket);
+    }
     public MarketRepository() {
+
         this.markets = new ArrayList<>();
+        insert_values();
     }
 
     @Override

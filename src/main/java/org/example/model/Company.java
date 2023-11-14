@@ -5,6 +5,15 @@ public class Company {
     private String name;
     private long capitalization;
 
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", capitalization=" + capitalization +
+                '}';
+    }
+
     public Company(int id, String name, long capitalization) {
         this.id = id;
         this.name = name;

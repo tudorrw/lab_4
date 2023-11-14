@@ -13,7 +13,6 @@ public class CompanyController {
 
         this.companyIRepository = companyIRepository;
         this.companyIdCounter = companyIRepository.getObjects().size();
-
     }
 
     public boolean addCompany(String name, long capitalization){
@@ -58,5 +57,4 @@ public class CompanyController {
         }
         return null;
     }
-
 }

@@ -30,7 +30,7 @@ public class CompanyView {
                 System.out.println("Invalid capitalization!");
             }
             else {
-                System.out.println("Company added Succesfully");
+                System.out.println("Company added succesfully");
             }
         } catch(InputMismatchException e) {
             System.out.println("Invalid input. Please enter a number.");
@@ -39,5 +39,20 @@ public class CompanyView {
     public void getAllCompanies() {
         List<Company> companies = companyController.getAll();
         companies.stream().map(Object::toString).forEach(System.out::println);
+    }
+    public void deleteCompany() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Give the name of the company you want to delete: ");
+        String companyName = input.nextLine();
+        if (companyName.isEmpty()) {
+            System.out.println("Invalid company name!");
+            return;
+        }
+        if(!companyController.removeCompany(companyName)){
+            System.out.println("This company doesn't exist in our database!");
+        }
+        else {
+            System.out.println("Company successfully removed!");
+        }
     }
 }

@@ -7,15 +7,17 @@ import org.example.repo.IRepository;
 import java.util.List;
 
 public class MarketController {
-    private IRepository<Market> repository;
+    private IRepository<Market> marketIRepository;
+    private int marketIdCounter;
 
-    public MarketController(IRepository<Market> repository) {
-        this.repository = repository;
+    public MarketController(IRepository<Market> marketIRepository) {
+        this.marketIRepository = marketIRepository;
+        this.marketIdCounter = marketIRepository.getObjects().size();
     }
 
-    public boolean addMarket(int id, String name, String location){
-        if(!this.searchMarketBool(id)) {
-            repository.save(new Market(id, name, location));
+    public boolean addMarket(String name, String location){
+        if(!this.searchMarketBool(name)) {
+            marketIRepository.save(new Market(marketIdCounter++, name, location));
             return true;
         }
         else{
@@ -23,10 +25,10 @@ public class MarketController {
         }
     }
 
-    public boolean removeMarket(int id){
-        Market search = this.searchMarket(id);
+    public boolean removeMarket(String name){
+        Market search = this.searchMarket(name);
         if(search != null) {
-            repository.delete(search);
+            marketIRepository.delete(search);
             return true;
         }
         else{
@@ -35,23 +37,23 @@ public class MarketController {
     }
 
     public List<Market> getAll(){
-        return repository.getObjects();
+        return marketIRepository.getObjects();
     }
 
-    public boolean searchMarketBool(int id){
-        List<Market> markets = repository.getObjects();
+    public boolean searchMarketBool(String name){
+        List<Market> markets = marketIRepository.getObjects();
         for (Market market: markets) {
-            if(market.getId() == id){
+            if(market.getName().equals(name)){
                 return true;
             }
         }
         return false;
     }
 
-    public Market searchMarket(int id){
-        List<Market> markets = repository.getObjects();
+    public Market searchMarket(String name){
+        List<Market> markets = marketIRepository.getObjects();
         for (Market market: markets) {
-            if(market.getId() == id){
+            if(market.getName().equals(name)){
                 return market;
             }
         }

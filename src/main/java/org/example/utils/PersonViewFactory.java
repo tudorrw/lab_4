@@ -6,7 +6,6 @@ import org.example.view.IPersonView;
 import org.example.view.UserView;
 
 public class PersonViewFactory {
-//    private static DependencyInjector injector;
     public static IPersonView createView(int selection, UserController userController, AdminController adminController, StockController stockController,CompanyController companyController, MarketController marketController) {
         return switch (selection) {
             case 1 -> new UserView(userController);
