@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="Added some functionality for Company">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/view/StockView.java" afterDir="false" />
+    <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="view on company and market">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ValueStockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ValueStockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/factory/PersonViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/factory/PersonViewFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/AdminView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/StockView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/StockView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,8 +43,8 @@
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
-        <option name="accountId" value="585967d7-3d52-44ac-a984-284c7b139cc0" />
-        <option name="url" value="https://github.com/tudorrw/lab_3" />
+        <option name="accountId" value="3a0a1070-c067-41b6-a74d-8c0bfc503331" />
+        <option name="url" value="https://github.com/tudorrw/lab_3.git" />
       </UrlAndAccount>
     </option>
   </component>
@@ -101,7 +103,7 @@
       <recent name="org.example.test" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="lab_2" />
@@ -111,58 +113,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in lab_2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lab_2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ObserverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lab_2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.test2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.test2" />
-      <option name="MAIN_CLASS_NAME" value="org.example.test2.ObserverTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StrategyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lab_2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.test2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.test2" />
-      <option name="MAIN_CLASS_NAME" value="org.example.test2.StrategyTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="org.example.test2 in lab_2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lab_2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.test2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.test2" />
-      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -183,10 +133,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.org.example.test2 in lab_2" />
-        <item itemvalue="JUnit.All in lab_2" />
-        <item itemvalue="JUnit.ObserverTest" />
-        <item itemvalue="JUnit.StrategyTest" />
       </list>
     </recent_temporary>
   </component>
@@ -210,7 +156,7 @@
       <workItem from="1699209319012" duration="10867000" />
       <workItem from="1699339261666" duration="1553000" />
       <workItem from="1699813998152" duration="12295000" />
-      <workItem from="1699910397005" duration="17574000" />
+      <workItem from="1699910397005" duration="24151000" />
     </task>
     <task id="LOCAL-00001" summary="creating lab_2&#10;-implementation of model entities&#10;-crating packages for MVC&#10;-crating repo interfac">
       <option name="closed" value="true" />
@@ -340,29 +286,29 @@
       <option name="project" value="LOCAL" />
       <updated>1699966831263</updated>
     </task>
-    <task id="LOCAL-00017" summary="Implemented Singleton Pattern for Repos">
+    <task id="LOCAL-00017" summary="functionality to CompanyView">
       <option name="closed" value="true" />
-      <created>1699997280778</created>
+      <created>1699986448495</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1699997280778</updated>
+      <updated>1699986448495</updated>
     </task>
-    <task id="LOCAL-00018" summary="Implemented Observer Pattern for Company and Stocks, and made a few changes to domain for the stocks">
+    <task id="LOCAL-00018" summary="strategy stocks">
       <option name="closed" value="true" />
-      <created>1700004043922</created>
+      <created>1699991783930</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1700004044021</updated>
+      <updated>1699991783930</updated>
     </task>
-    <task id="LOCAL-00019" summary="Added some functionality for Company">
+    <task id="LOCAL-00019" summary="view on company and market">
       <option name="closed" value="true" />
-      <created>1700006270434</created>
+      <created>1699991853122</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1700006270434</updated>
+      <updated>1699991853122</updated>
     </task>
     <option name="localTasksCounter" value="20" />
     <servers />
@@ -431,10 +377,10 @@
     <MESSAGE value="create Strategy on stocks" />
     <MESSAGE value="move all design pattern classes in the utils package" />
     <MESSAGE value="add some functionality to adminview - user crud operations" />
-    <MESSAGE value="Implemented Singleton Pattern for Repos" />
-    <MESSAGE value="Implemented Observer Pattern for Company and Stocks, and made a few changes to domain for the stocks" />
-    <MESSAGE value="Added some functionality for Company" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some functionality for Company" />
+    <MESSAGE value="functionality to CompanyView" />
+    <MESSAGE value="strategy stocks" />
+    <MESSAGE value="view on company and market" />
+    <option name="LAST_COMMIT_MESSAGE" value="view on company and market" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

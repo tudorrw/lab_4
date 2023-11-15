@@ -10,14 +10,17 @@ import java.util.Scanner;
 public class View {
     UserController userController;
     AdminController adminController;
-    StockController stockController;
+
+    ValueStockController valueStockController;
+    GrowthStockController growthStockController;
     CompanyController companyController;
     MarketController marketController;
 
-    public View(UserController userController, AdminController adminController, StockController stockController, CompanyController companyController, MarketController marketController) {
+    public View(UserController userController, AdminController adminController, ValueStockController valueStockController, GrowthStockController growthStockController, CompanyController companyController, MarketController marketController) {
         this.userController = userController;
         this.adminController = adminController;
-        this.stockController = stockController;
+        this.valueStockController = valueStockController;
+        this.growthStockController = growthStockController;
         this.companyController = companyController;
         this.marketController = marketController;
     }
@@ -37,7 +40,7 @@ public class View {
             displayMenu();
             try {
                 selection = input.nextInt();
-                IPersonView view = PersonViewFactory.createView(selection, userController, adminController, stockController, companyController, marketController);
+                IPersonView view = PersonViewFactory.createView(selection, userController, adminController, valueStockController, growthStockController,companyController, marketController);
                 if(view != null) {
                     view.run();
                 }

@@ -12,13 +12,15 @@ public class Main {
         IRepository<Admin> adminRepo = AdminRepository.getInstance();
         IRepository<Company> companyRepo = CompanyRepository.getInstance();
         IRepository<Market> marketRepo = MarketRepository.getInstance();
-        IRepository<Stock> stockRepo = StockRepository.getInstance();
+        IRepository<ValueStock> valueStockIRepository = ValueStockRepository.getInstance();
+        IRepository<GrowthStock> growthStockIRepository = GrowthStockRepository.getInstance();
         UserController userController = new UserController(userRepo);
         AdminController adminController = new AdminController(adminRepo);
         CompanyController companyController = new CompanyController(CompanyRepository.getInstance());
         MarketController marketController = new MarketController(marketRepo);
-        StockController stockController = new StockController(stockRepo);
-        View view = new View(userController, adminController, stockController, companyController, marketController);
+        GrowthStockController growthStockController = new GrowthStockController(growthStockIRepository);
+        ValueStockController valueStockController = new ValueStockController(valueStockIRepository);
+        View view = new View(userController, adminController, valueStockController, growthStockController,companyController, marketController);
         view.run();
     }
 }

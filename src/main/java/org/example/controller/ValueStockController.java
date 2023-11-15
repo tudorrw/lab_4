@@ -14,7 +14,7 @@ public class ValueStockController {
         this.repository = repository;
     }
 
-    public boolean addValueStock(int id, String name, Company company, Market market, int dividend){
+    public boolean addValueStock(int id, String name, Company company, Market market, double dividend){
         if(!this.searchValueStockBool(id)) {
             repository.save(new ValueStock(id, name,company,market,dividend));
             return true;

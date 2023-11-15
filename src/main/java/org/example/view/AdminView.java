@@ -1,21 +1,26 @@
 package org.example.view;
 
 import org.example.controller.*;
+import org.example.utils.strategy.GrowthStockValuationStrategy;
+import org.example.utils.strategy.ValueStockValuationStrategy;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class AdminView implements IPersonView {
     private final AdminController adminController;
     private final UserController userController;
-    private final StockController stockController;
+    private final ValueStockController valueStockController;
+    private final GrowthStockController growthStockController;
     private final CompanyController companyController;
     private final MarketController marketController;
 
 
-    public AdminView(AdminController adminController, UserController userController, StockController stockController, CompanyController companyController, MarketController marketController) {
+    public AdminView(AdminController adminController, UserController userController, ValueStockController valueStockController, GrowthStockController growthStockController, CompanyController companyController, MarketController marketController) {
         this.adminController = adminController;
         this.userController = userController;
-        this.stockController = stockController;
+        this.valueStockController = valueStockController;
+        this.growthStockController = growthStockController;
         this.companyController = companyController;
         this.marketController = marketController;
     }
@@ -38,15 +43,14 @@ public class AdminView implements IPersonView {
     }
 
     private void displayMenuForStocks() {
-        System.out.println("1 - Add growth stock(working)");
-        System.out.println("2 - Add value stock");
-        System.out.println("2 - Delete growth stock");
-        System.out.println("2 - Delete growth stock");
-        System.out.println("3 - See all growth stocks(working)");
+        System.out.println("1 - Add value stock");
+        System.out.println("2 - Add growth stock");
         System.out.println("3 - See all value stocks");
-        System.out.println("4 - Update growth stock");
-        System.out.println("4 - Update value stock");
-        System.out.println("5 - Back to main menu");
+        System.out.println("4 - See all growth stocks");
+        System.out.println("5 - Update stock");
+        System.out.println("6 - See profit for value stocks");
+        System.out.println("7 - See profit for growth stocks");
+        System.out.println("8 - Back to main menu");
     }
 
     private void displayMenuForCompanies() {
@@ -145,31 +149,45 @@ public class AdminView implements IPersonView {
     private void handleStocksMenu() {
         Scanner input = new Scanner(System.in);
         int adminSelection = 0;
-        StockView stockView = new StockView(stockController,marketController,companyController);
-        while (adminSelection != 5) {
+        StockView stockView = new StockView(valueStockController, growthStockController, marketController, companyController);
+        while (adminSelection != 8) {
             displayMenuForStocks();
             try {
                 adminSelection = input.nextInt();
 
                 switch (adminSelection) {
                     case 1:
-                        System.out.println("Add stock functionality");
-                        stockView.add();
+                        System.out.println("Add value stock functionality");
+                        stockView.addValue();
                         break;
                     case 2:
-                        System.out.println("Delete stock functionality");
-                        // Implement delete user functionality
+                        System.out.println("Add growth stock functionality");
+                        stockView.addGrowth();
                         break;
                     case 3:
-                        System.out.println("See all stocks functionality");
+                        System.out.println("See all value stocks functionality");
                         // Implement see all users functionality
-                        stockView.getAllStocks();
+                        stockView.getAllValueStocksDetails();
                         break;
                     case 4:
+                        System.out.println("See all growth stocks functionality");
+                        stockView.getAllValueStocksDetails();
+                        break;
+                    case 5:
                         System.out.println("Update stocks functionality");
                         // Implement update user functionality
                         break;
-                    case 5:
+                    case 6:
+                        System.out.println("See profit for value stocks");
+                        stockView.stockProfit.setStrategy(new ValueStockValuationStrategy());
+                        stockView.generalValueProfit();
+                        break;
+                    case 7:
+                        System.out.println("See profit for growth stocks");
+                        stockView.stockProfit.setStrategy(new GrowthStockValuationStrategy());
+                        stockView.generalGrowthProfit();
+                        break;
+                    case 8:
                         System.out.println("Back to main menu.");
                         break;
                     default:
