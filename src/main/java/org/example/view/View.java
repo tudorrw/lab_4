@@ -14,9 +14,10 @@ public class View {
     CompanyController companyController;
     MarketController marketController;
 
-    public View(UserController userController, AdminController adminController, CompanyController companyController, MarketController marketController) {
+    public View(UserController userController, AdminController adminController, StockController stockController, CompanyController companyController, MarketController marketController) {
         this.userController = userController;
         this.adminController = adminController;
+        this.stockController = stockController;
         this.companyController = companyController;
         this.marketController = marketController;
     }

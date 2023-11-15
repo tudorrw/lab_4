@@ -38,11 +38,11 @@ public class AdminView implements IPersonView {
     }
 
     private void displayMenuForStocks() {
-        System.out.println("1 - Add growth stock");
+        System.out.println("1 - Add growth stock(working)");
         System.out.println("2 - Add value stock");
         System.out.println("2 - Delete growth stock");
         System.out.println("2 - Delete growth stock");
-        System.out.println("3 - See all growth stocks");
+        System.out.println("3 - See all growth stocks(working)");
         System.out.println("3 - See all value stocks");
         System.out.println("4 - Update growth stock");
         System.out.println("4 - Update value stock");
@@ -145,7 +145,7 @@ public class AdminView implements IPersonView {
     private void handleStocksMenu() {
         Scanner input = new Scanner(System.in);
         int adminSelection = 0;
-
+        StockView stockView = new StockView(stockController,marketController,companyController);
         while (adminSelection != 5) {
             displayMenuForStocks();
             try {
@@ -154,7 +154,7 @@ public class AdminView implements IPersonView {
                 switch (adminSelection) {
                     case 1:
                         System.out.println("Add stock functionality");
-                        // Implement add user functionality
+                        stockView.add();
                         break;
                     case 2:
                         System.out.println("Delete stock functionality");
@@ -163,6 +163,7 @@ public class AdminView implements IPersonView {
                     case 3:
                         System.out.println("See all stocks functionality");
                         // Implement see all users functionality
+                        stockView.getAllStocks();
                         break;
                     case 4:
                         System.out.println("Update stocks functionality");

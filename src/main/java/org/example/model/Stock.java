@@ -13,7 +13,16 @@ public class Stock implements Observer {
 
     private StockValuationStrategy valuationStrategy;
 
-
+    @Override
+    public String toString() {
+        return "Stock{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", company=" + company.getName() +
+                ", market=" + market.getName() +
+                '}';
+    }
 
     public Stock(int id, String name, Company company_, Market market_) {
         this.id = id;
