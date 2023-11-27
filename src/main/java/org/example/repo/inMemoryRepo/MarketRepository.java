@@ -1,15 +1,13 @@
-package org.example.repo;
+package org.example.repo.inMemoryRepo;
 
 import org.example.model.Market;
-import org.example.model.ValueStock;
-import org.example.utils.observer.Observable;
-import org.example.utils.observer.Observer;
+import org.example.repo.IRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MarketRepository implements IRepository<Market>{
-    private List<Market> markets;
+public class MarketRepository implements IRepository<Market> {
+    private ArrayList<Market> markets;
     private static MarketRepository instance;
 
 
@@ -26,7 +24,7 @@ public class MarketRepository implements IRepository<Market>{
     }
 
     @Override
-    public List<Market> getObjects() {
+    public ArrayList<Market> getObjects() {
         return markets;
     }
 

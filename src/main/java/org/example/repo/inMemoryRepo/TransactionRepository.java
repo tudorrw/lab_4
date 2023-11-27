@@ -1,12 +1,13 @@
-package org.example.repo;
+package org.example.repo.inMemoryRepo;
 
 import org.example.model.Transaction;
+import org.example.repo.IRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TransactionRepository implements IRepository<Transaction>{
-    private List<Transaction> transactions;
+public class TransactionRepository implements IRepository<Transaction> {
+    private ArrayList<Transaction> transactions;
     private static TransactionRepository instance;
 
 
@@ -15,7 +16,7 @@ public class TransactionRepository implements IRepository<Transaction>{
     }
 
     @Override
-    public List<Transaction> getObjects() {
+    public ArrayList<Transaction> getObjects() {
         return transactions;
     }
 

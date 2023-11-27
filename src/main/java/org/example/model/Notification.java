@@ -3,15 +3,15 @@ package org.example.model;
 import java.time.LocalDateTime;
 
 public class Notification {
-    private int userId;
     private int id;
+    private int userId;
     private String message;
     private LocalDateTime timestamp;
     private String status;
 
-    public Notification(int user, int id, String message, LocalDateTime timestamp, String status) {
-        this.userId = user;
+    public Notification(int id, int userId, String message, LocalDateTime timestamp, String status) {
         this.id = id;
+        this.userId = userId;
         this.message = message;
         this.timestamp = timestamp;
         this.status = status;

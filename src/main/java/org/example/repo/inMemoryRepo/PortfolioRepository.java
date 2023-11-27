@@ -1,13 +1,13 @@
-package org.example.repo;
+package org.example.repo.inMemoryRepo;
 
 import org.example.model.Portfolio;
-import org.example.model.ValueStock;
+import org.example.repo.IRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PortfolioRepository implements IRepository<Portfolio>{
-    private List<Portfolio> portfolios;
+public class PortfolioRepository implements IRepository<Portfolio> {
+    private ArrayList<Portfolio> portfolios;
     private static PortfolioRepository instance;
 
     private PortfolioRepository() {
@@ -15,7 +15,7 @@ public class PortfolioRepository implements IRepository<Portfolio>{
     }
 
     @Override
-    public List<Portfolio> getObjects() {
+    public ArrayList<Portfolio> getObjects() {
         return portfolios;
     }
 

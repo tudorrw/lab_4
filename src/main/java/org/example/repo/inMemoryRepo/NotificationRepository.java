@@ -1,13 +1,13 @@
-package org.example.repo;
+package org.example.repo.inMemoryRepo;
 
 import org.example.model.Notification;
-import org.example.model.ValueStock;
+import org.example.repo.IRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class NotificationRepository implements IRepository<Notification> {
-    private List<Notification> notifications;
+    private ArrayList<Notification> notifications;
     private static NotificationRepository instance;
 
     private NotificationRepository() {
@@ -15,7 +15,7 @@ public class NotificationRepository implements IRepository<Notification> {
     }
 
     @Override
-    public List<Notification> getObjects() {
+    public ArrayList<Notification> getObjects() {
         return notifications;
     }
 

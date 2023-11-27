@@ -1,14 +1,13 @@
-package org.example.repo;
+package org.example.repo.inMemoryRepo;
 
-import org.example.model.Company;
 import org.example.model.Stock;
-import org.example.utils.observer.Observer;
+import org.example.repo.IRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class StockRepository implements IRepository<Stock> {
-    private List<Stock> stocks;
+    private ArrayList<Stock> stocks;
     private static StockRepository instance;
 
 
@@ -17,7 +16,7 @@ public class StockRepository implements IRepository<Stock> {
     }
 
     @Override
-    public List<Stock> getObjects() {
+    public ArrayList<Stock> getObjects() {
         return stocks;
     }
 

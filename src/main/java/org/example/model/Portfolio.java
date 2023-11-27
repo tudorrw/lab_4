@@ -3,14 +3,14 @@ package org.example.model;
 import java.util.List;
 
 public class Portfolio {
-    private int userId;
     private int id;
-    private int cash;
+    private int userId;
+    private double cash;
     private List<Integer> idStocks;
 
-    public Portfolio(int userId, int id, int cash, List<Integer> idStocks) {
-        this.userId = userId;
+    public Portfolio(int id, int userId, double cash, List<Integer> idStocks) {
         this.id = id;
+        this.userId = userId;
         this.cash = cash;
         this.idStocks = idStocks;
     }
@@ -31,11 +31,11 @@ public class Portfolio {
         this.userId = userId;
     }
 
-    public int getCash() {
+    public double getCash() {
         return cash;
     }
 
-    public void setCash(int cash) {
+    public void setCash(double cash) {
         this.cash = cash;
     }
 
