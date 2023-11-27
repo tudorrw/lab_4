@@ -28,7 +28,7 @@ public class UserRepositoryDB implements IRepository<User> {
     public List<User> getObjects() {
         List<User> result = new ArrayList<>();
         try {
-            String query = "SELECT * FROM customer";
+            String query = "SELECT * FROM Customers";
             PreparedStatement statement = connection.prepareStatement(query);
             ResultSet results = statement.executeQuery();
 
