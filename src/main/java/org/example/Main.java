@@ -3,6 +3,7 @@ package org.example;
 import org.example.controller.*;
 import org.example.model.*;
 import org.example.repo.*;
+import org.example.repo.inMemoryRepo.MarketRepository;
 import org.example.view.StockView;
 import org.example.view.View;
 

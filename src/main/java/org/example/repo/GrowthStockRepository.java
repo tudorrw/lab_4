@@ -1,9 +1,6 @@
 package org.example.repo;
 
-import org.example.model.Company;
 import org.example.model.GrowthStock;
-import org.example.model.Stock;
-import org.example.utils.observer.Observer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +24,7 @@ public class GrowthStockRepository implements IRepository<GrowthStock> {
     }
 
     @Override
-    public void update(GrowthStock entity, String action) {
+    public void update(GrowthStock entity) {
 
     }
 

@@ -4,7 +4,6 @@ import org.example.model.Stock;
 import org.example.repo.IRepository;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class StockRepository implements IRepository<Stock> {
     private ArrayList<Stock> stocks;
@@ -26,7 +25,7 @@ public class StockRepository implements IRepository<Stock> {
     }
 
     @Override
-    public void update(Stock entity, String action) {
+    public void update(Stock entity) {
 
     }
 

@@ -35,7 +35,7 @@ public class CompanyRepository implements IRepository<Company> {
     }
 
     @Override
-    public void update(Company entity, String action) {
+    public void update(Company entity) {
 
     }
 

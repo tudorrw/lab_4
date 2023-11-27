@@ -4,7 +4,6 @@ import org.example.model.Market;
 import org.example.repo.IRepository;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MarketRepository implements IRepository<Market> {
     private ArrayList<Market> markets;
@@ -34,7 +33,7 @@ public class MarketRepository implements IRepository<Market> {
     }
 
     @Override
-    public void update(Market entity, String action) {
+    public void update(Market entity) {
 
     }
 

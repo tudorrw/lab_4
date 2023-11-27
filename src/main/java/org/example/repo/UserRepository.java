@@ -39,7 +39,7 @@ public class UserRepository implements IRepository<User>{
     }
 
     @Override
-    public void update(User entity, String action) {
+    public void update(User entity) {
 
     }
 

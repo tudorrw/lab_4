@@ -4,7 +4,6 @@ import org.example.model.Transaction;
 import org.example.repo.IRepository;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TransactionRepository implements IRepository<Transaction> {
     private ArrayList<Transaction> transactions;
@@ -26,7 +25,7 @@ public class TransactionRepository implements IRepository<Transaction> {
     }
 
     @Override
-    public void update(Transaction entity, String action) {
+    public void update(Transaction entity) {
 
     }
 

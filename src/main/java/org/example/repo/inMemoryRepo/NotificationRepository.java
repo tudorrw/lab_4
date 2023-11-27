@@ -4,7 +4,6 @@ import org.example.model.Notification;
 import org.example.repo.IRepository;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class NotificationRepository implements IRepository<Notification> {
     private ArrayList<Notification> notifications;
@@ -25,7 +24,7 @@ public class NotificationRepository implements IRepository<Notification> {
     }
 
     @Override
-    public void update(Notification entity, String action) {
+    public void update(Notification entity) {
 
     }
 
