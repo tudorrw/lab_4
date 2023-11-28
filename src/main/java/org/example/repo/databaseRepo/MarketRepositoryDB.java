@@ -1,7 +1,6 @@
 package org.example.repo.databaseRepo;
 
 import org.example.database.DBConnection;
-import org.example.model.Company;
 import org.example.model.Market;
 import org.example.model.User;
 import org.example.repo.IRepository;
@@ -13,23 +12,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompanyRepositoryDB implements IRepository<Company> {
+public class MarketRepositoryDB implements IRepository<Market> {
+
     public Connection connection = DBConnection.getConnection();
 
-    public static CompanyRepositoryDB instance;
+    public static MarketRepositoryDB instance;
 
-    public static CompanyRepositoryDB getInstance() {
+    public static MarketRepositoryDB getInstance() {
         if(instance == null) {
-            instance = new CompanyRepositoryDB();
+            instance = new MarketRepositoryDB();
         }
         return instance;
     }
 
     @Override
-    public List<Company> getObjects() {
-        List<Company> result = new ArrayList<>();
+    public List<Market> getObjects() {
+        List<Market> result = new ArrayList<>();
         try {
-            String query = "SELECT * FROM Companies";
+            String query = "SELECT * FROM Markets";
             PreparedStatement statement = connection.prepareStatement(query);
             ResultSet results = statement.executeQuery();
 
@@ -37,9 +37,8 @@ public class CompanyRepositoryDB implements IRepository<Company> {
             {
                 int id = results.getInt("id");
                 String name = results.getString("name");
-                long capitalization = results.getLong("capitalization");
-                long numberShares = results.getLong("numberShares");
-                result.add(new Company(id,name,capitalization,numberShares));
+                String location = results.getString("location");
+                result.add(new Market(id,name,location));
             }
         }
         catch (SQLException e) {
@@ -50,18 +49,16 @@ public class CompanyRepositoryDB implements IRepository<Company> {
     }
 
     @Override
-    public void save(Company company) {
-        int id = company.getId();
-        String name = company.getName();
-        long capitalization = company.getCapitalization();
-        long numberShares =  company.getNumberShares();
-        String query = "INSERT INTO Companies (id, name, capitalization, numberShares) VALUES (?, ?, ?, ?)";
+    public void save(Market market) {
+        int id = market.getId();
+        String name = market.getName();
+        String location = market.getLocation();
+        String query = "INSERT INTO Markets (id, name, location) VALUES (?, ?, ?)";
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
             statement.setString(2, name);
-            statement.setLong(3, capitalization);
-            statement.setLong(4, numberShares);
+            statement.setString(3, location);
             statement.executeUpdate();
         }
         catch (SQLException e) {
@@ -70,19 +67,16 @@ public class CompanyRepositoryDB implements IRepository<Company> {
     }
 
     @Override
-    public void update(Company entity) {
+    public void update(Market entity) {
         int id = entity.getId();
         String name = entity.getName();
-        long capitalization = entity.getCapitalization();
-        long numberShares =  entity.getNumberShares();
+        String location = entity.getLocation();
 
         try {
-            String query = "UPDATE Companies SET name = ?, capitalization = ?, numberShares = ?  WHERE id = ?;";
+            String query = "UPDATE Markets SET name = ?, location = ? WHERE id = ?;";
             PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(1, id);
-            statement.setString(2, name);
-            statement.setLong(3, capitalization);
-            statement.setLong(4, numberShares);
+            statement.setString(1, name);
+            statement.setString(2, location);
             statement.executeUpdate();
         }
         catch (SQLException e) {
@@ -92,9 +86,9 @@ public class CompanyRepositoryDB implements IRepository<Company> {
     }
 
     @Override
-    public void delete(Company object) {
+    public void delete(Market object) {
         int id = object.getId();
-        String query = "DELETE FROM Companies WHERE id = ?";
+        String query = "DELETE FROM Markets WHERE id = ?";
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
@@ -105,19 +99,17 @@ public class CompanyRepositoryDB implements IRepository<Company> {
         }
     }
 
-    public Company searchId(int id) {
+    public Market searchId(int id){
         try {
-            String query = "SELECT * FROM Companies WHERE id = ?";
+            String query = "SELECT * FROM Markets WHERE id = ?";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
             ResultSet results = statement.executeQuery();
             if (results.next())
             {
-                Company company = new Company(id,"",0,0);
-                company.setName(results.getString("name"));
-                company.setCapitalization(results.getLong("capitalization"));
-                company.setNumberShares(results.getLong("numberShares"));
-                return company;
+                Market market = new Market(id,"","");
+                market.setName(results.getString("name"));
+                return market;
             }
         }  catch (SQLException e) {
             throw new RuntimeException(e);
