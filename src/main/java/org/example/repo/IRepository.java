@@ -6,7 +6,7 @@ public interface IRepository<T> {
 
     void save(T entity);
 
-    void update(T entity, String action);
+    void update(T entity);
 
     void delete(T object);
 }

@@ -24,7 +24,7 @@ public class AdminRepository implements IRepository<Admin> {
     }
 
     @Override
-    public void update(Admin entity, String action) {
+    public void update(Admin entity) {
 
     }
 

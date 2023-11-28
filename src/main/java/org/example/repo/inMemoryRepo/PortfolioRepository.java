@@ -4,7 +4,6 @@ import org.example.model.Portfolio;
 import org.example.repo.IRepository;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class PortfolioRepository implements IRepository<Portfolio> {
     private ArrayList<Portfolio> portfolios;
@@ -25,7 +24,7 @@ public class PortfolioRepository implements IRepository<Portfolio> {
     }
 
     @Override
-    public void update(Portfolio entity, String action) {
+    public void update(Portfolio entity) {
 
     }
 
