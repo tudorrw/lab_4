@@ -5,37 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="database">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/factory/CompanyRepoFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/factory/GrowthStockRepoFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/factory/MarketRepoFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/factory/UserRepoFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/CompanyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/GrowthStockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/GrowthStockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/MarketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MarketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Market.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Stock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/AdminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/inMemoryRepo/AdminRepositoryIM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/inMemoryRepo/CompanyRepositoryIM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/GrowthStockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/inMemoryRepo/GrowthStockRepositoryIM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/IRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/IRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/inMemoryRepo/UserRepositoryIM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/ValueStockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/inMemoryRepo/ValueStockRepositoryIM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/AdminRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/AdminRepositoryDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/CompanyRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/CompanyRepositoryDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/GrowthStockRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/GrowthStockRepositoryDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/MarketRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/MarketRepositoryDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/UserRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/UserRepositoryDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/inMemoryRepo/MarketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/inMemoryRepo/MarketRepositoryIM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/inMemoryRepo/NotificationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/inMemoryRepo/NotificationRepositoryIM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/inMemoryRepo/PortfolioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/inMemoryRepo/PortfolioRepositoryIM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/inMemoryRepo/TransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/inMemoryRepo/TransactionRepositoryIM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/test/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/test/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/test/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/test/UserRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
