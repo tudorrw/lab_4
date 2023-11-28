@@ -43,14 +43,14 @@ public class GrowthStockRepositoryDB implements IRepository<GrowthStock> {
 
             while(results.next())
             {
-                int id = results.getInt("id");
+                int id = results.getInt("growthStockId");
                 String name = results.getString("name");
                 int company_id = results.getInt("CompanyId");
                 int market_id = results.getInt("MarketId");
                 int growth_rate = results.getInt("GrowthRate");
 
                 Company company = companyRepositoryDB.searchId(company_id);
-                Market market = marketRepositoryDB.searchId(company_id);
+                Market market = marketRepositoryDB.searchId(market_id);
                 result.add(new GrowthStock(id,name,company,market,growth_rate));
             }
         }
@@ -66,9 +66,9 @@ public class GrowthStockRepositoryDB implements IRepository<GrowthStock> {
         int id = growthStock.getId();
         String name = growthStock.getName();
         int company = growthStock.getCompany().getId();
-        int market = growthStock.getmarket().getId();
+        int market = growthStock.getMarket().getId();
         int growth_rate = growthStock.getGrowth_rate();
-        String query = "INSERT INTO GrowthStocks (id, name, company, market, growth_rate) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO GrowthStocks (growthStockId, name, companyId, marketId, growth_rate) VALUES (?, ?, ?, ?, ?)";
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
@@ -88,11 +88,11 @@ public class GrowthStockRepositoryDB implements IRepository<GrowthStock> {
         int id = entity.getId();
         String name = entity.getName();
         int company = entity.getCompany().getId();
-        int market = entity.getmarket().getId();
+        int market = entity.getMarket().getId();
         int growth_rate = entity.getGrowth_rate();
 
         try {
-            String query = "UPDATE GrowthStocks SET name = ?, company = ?, market = ?, growth_rate = ? WHERE id = ?;";
+            String query = "UPDATE GrowthStocks SET name = ?, companyId = ?, marketId = ?, growth_rate = ? WHERE growthStockId = ?;";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(5, id);
             statement.setString(1, name);
@@ -110,7 +110,7 @@ public class GrowthStockRepositoryDB implements IRepository<GrowthStock> {
     @Override
     public void delete(GrowthStock object) {
         int id = object.getId();
-        String query = "DELETE FROM Admins WHERE id = ?";
+        String query = "DELETE FROM GrowthStocks WHERE growthStockId = ?";
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);

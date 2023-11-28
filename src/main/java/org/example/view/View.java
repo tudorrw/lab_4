@@ -2,9 +2,15 @@ package org.example.view;
 
 
 import org.example.controller.*;
+import org.example.repo.*;
+import org.example.repo.inMemoryRepo.AdminRepositoryIM;
+import org.example.repo.inMemoryRepo.CompanyRepositoryIM;
+import org.example.repo.inMemoryRepo.MarketRepositoryIM;
+import org.example.repo.inMemoryRepo.ValueStockRepositoryIM;
 import org.example.utils.factory.PersonViewFactory;
 
 import java.util.InputMismatchException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class View {
@@ -15,14 +21,39 @@ public class View {
     GrowthStockController growthStockController;
     CompanyController companyController;
     MarketController marketController;
+    private static View instance;
+    private final Scanner scanner;
 
-    public View(UserController userController, AdminController adminController, ValueStockController valueStockController, GrowthStockController growthStockController, CompanyController companyController, MarketController marketController) {
-        this.userController = userController;
-        this.adminController = adminController;
-        this.valueStockController = valueStockController;
-        this.growthStockController = growthStockController;
-        this.companyController = companyController;
-        this.marketController = marketController;
+    private View() {
+        this.scanner = new Scanner(System.in);
+    }
+
+    public static View getInstance() {
+        if(instance == null) {
+            instance = new View();
+        }
+        return instance;
+    }
+
+    public void displayRepoTypeMenu() {
+        System.out.println("Choose repo type:");
+        System.out.println("1. Database");
+        System.out.println("2. In memory");
+        System.out.println("Enter your choice: ");
+    }
+
+    private RepoTypes selectRepoType() {
+        displayRepoTypeMenu();
+        String option = scanner.nextLine();
+        while(!Objects.equals(option, "1") && !Objects.equals(option, "2")) {
+            System.out.println("Invalid option, please enter a valid choice!");
+            System.out.println("Enter your choice: ");
+            option = scanner.nextLine();
+        }
+        if (option.equals("1")) {
+            return RepoTypes.database;
+        }
+        return RepoTypes.inMemory;
     }
 
     public void displayMenu() {
@@ -33,13 +64,12 @@ public class View {
 
     }
     public void run() {
-        Scanner input = new Scanner(System.in);
+        selectRepoTypes();
         int selection = 0;
-
         while (selection != 3) {
             displayMenu();
             try {
-                selection = input.nextInt();
+                selection = scanner.nextInt();
                 IPersonView view = PersonViewFactory.createView(selection, userController, adminController, valueStockController, growthStockController,companyController, marketController);
                 if(view != null) {
                     view.run();
@@ -54,9 +84,28 @@ public class View {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input!");
-                input.next();
             }
         }
+
     }
 
+    private void selectRepoTypes() {
+        RepoTypes repoType = selectRepoType();
+        this.adminController =  new AdminController(AdminRepositoryIM.getInstance());
+        this.valueStockController = new ValueStockController(ValueStockRepositoryIM.getInstance());
+
+        userController.setRepoType(repoType);
+        userController = UserController.getInstance();
+
+        growthStockController.setRepoType(repoType);
+        growthStockController = GrowthStockController.getInstance();
+
+        companyController.setRepoType(repoType);
+        companyController = CompanyController.getInstance();
+
+        marketController.setRepoType(repoType);
+        marketController = MarketController.getInstance();
+
+
+    }
 }

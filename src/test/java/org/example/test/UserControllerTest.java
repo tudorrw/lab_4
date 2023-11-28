@@ -1,7 +1,8 @@
 package org.example.test;
 
 import org.example.controller.UserController;
-import org.example.repo.UserRepository;
+import org.example.repo.RepoTypes;
+import org.example.repo.inMemoryRepo.UserRepositoryIM;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,13 +10,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UserControllerTest {
     private UserController userController;
-    private UserRepository userRepository;
+    private UserRepositoryIM userRepository;
 
     @BeforeEach
     void setUp() {
-        this.userRepository = UserRepository.getInstance();
-        this.userController = new UserController(userRepository);
-
+        this.userRepository = UserRepositoryIM.getInstance();
+        this.userController.setRepoType(RepoTypes.inMemory);
+        this.userController = UserController.getInstance();
     }
     @Test
     void findUser() {

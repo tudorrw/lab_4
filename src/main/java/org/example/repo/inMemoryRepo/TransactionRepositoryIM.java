@@ -5,12 +5,12 @@ import org.example.repo.IRepository;
 
 import java.util.ArrayList;
 
-public class TransactionRepository implements IRepository<Transaction> {
+public class TransactionRepositoryIM implements IRepository<Transaction> {
     private ArrayList<Transaction> transactions;
-    private static TransactionRepository instance;
+    private static TransactionRepositoryIM instance;
 
 
-    private TransactionRepository() {
+    private TransactionRepositoryIM() {
         this.transactions = new ArrayList<>();
     }
 
@@ -35,9 +35,9 @@ public class TransactionRepository implements IRepository<Transaction> {
     }
 
 
-    public static TransactionRepository getInstance() {
+    public static TransactionRepositoryIM getInstance() {
         if (instance == null) {
-            instance = new TransactionRepository();
+            instance = new TransactionRepositoryIM();
         }
         return instance;
     }

@@ -28,13 +28,13 @@ public class UserRepositoryDB implements IRepository<User> {
     public List<User> getObjects() {
         List<User> result = new ArrayList<>();
         try {
-            String query = "SELECT * FROM Customers";
+            String query = "SELECT * FROM USERS";
             PreparedStatement statement = connection.prepareStatement(query);
             ResultSet results = statement.executeQuery();
 
             while(results.next())
             {
-                int id = results.getInt("id");
+                int id = results.getInt("userId");
                 String username = results.getString("username");
                 String password = results.getString("password");
                 result.add(new User(id,username,password));
@@ -52,7 +52,7 @@ public class UserRepositoryDB implements IRepository<User> {
         int id = user.getId();
         String username = user.getUsername();
         String password = user.getPassword();
-        String query = "INSERT INTO Users (id, username, password) VALUES (?, ?, ?)";
+        String query = "INSERT INTO Users (userId, username, password) VALUES (?, ?, ?)";
         try{
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setInt(1, id);
@@ -72,7 +72,7 @@ public class UserRepositoryDB implements IRepository<User> {
         String password = entity.getPassword();
 
         try {
-            String query = "UPDATE Users SET username = ?, password = ? WHERE id = ?;";
+            String query = "UPDATE Users SET username = ?, password = ? WHERE userId = ?;";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, username);
             statement.setString(2, password);
@@ -87,7 +87,7 @@ public class UserRepositoryDB implements IRepository<User> {
     @Override
     public void delete(User object) {
         int id = object.getId();
-        String query = "DELETE FROM Users WHERE id = ?";
+        String query = "DELETE FROM Users WHERE userId = ?";
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);

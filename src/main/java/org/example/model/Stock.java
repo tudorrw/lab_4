@@ -66,7 +66,7 @@ public class Stock implements Observer {
         company = company_;
     }
 
-    public Market getmarket() {
+    public Market getMarket() {
         return market;
     }
 

@@ -1,15 +1,16 @@
-package org.example.repo;
+package org.example.repo.inMemoryRepo;
 
 import org.example.model.ValueStock;
+import org.example.repo.IRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ValueStockRepository implements IRepository<ValueStock> {
+public class ValueStockRepositoryIM implements IRepository<ValueStock> {
     private List<ValueStock> valueStocks;
-    private static ValueStockRepository instance;
+    private static ValueStockRepositoryIM instance;
 
-    private ValueStockRepository() {
+    private ValueStockRepositoryIM() {
         this.valueStocks = new ArrayList<>();
     }
 
@@ -34,9 +35,9 @@ public class ValueStockRepository implements IRepository<ValueStock> {
     }
 
 
-    public static ValueStockRepository getInstance() {
+    public static ValueStockRepositoryIM getInstance() {
         if (instance == null) {
-            instance = new ValueStockRepository();
+            instance = new ValueStockRepositoryIM();
         }
         return instance;
     }

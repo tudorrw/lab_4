@@ -1,20 +1,32 @@
 package org.example.controller;
 
 import org.example.repo.IRepository;
-import org.example.repo.UserRepository;
+import org.example.repo.RepoTypes;
 import org.example.model.User;
+import org.example.utils.factory.UserRepoFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserController {
-    private final IRepository<User> userIRepository;
+    private static IRepository<User> userIRepository;
+    private static RepoTypes repoType;
+    private static UserController instance;
     private int userIdCounter;
 
-    public UserController(IRepository<User> userIRepository) {
-        this.userIRepository = userIRepository;
+    private UserController() {
+        if(repoType == null) {
+            throw new RuntimeException("repo type not provided!");
+        }
+        userIRepository = UserRepoFactory.createIRepository(repoType);
         this.userIdCounter = userIRepository.getObjects().size() + 1;
     }
+    public static UserController getInstance() {
+        if(instance == null) {
+            instance = new UserController();
+        }
+        return instance;
+    }
+
 
     public User findUser(String username, String password) {
         List<User> database = userIRepository.getObjects();
@@ -67,6 +79,9 @@ public class UserController {
     public List<User> showAllUsers() {
          return userIRepository.getObjects();
 
+    }
+    public static void setRepoType(RepoTypes rT) {
+        repoType = rT;
     }
 
 }

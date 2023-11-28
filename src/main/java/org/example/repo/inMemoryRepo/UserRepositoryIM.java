@@ -1,13 +1,14 @@
-package org.example.repo;
+package org.example.repo.inMemoryRepo;
 
 import org.example.model.User;
+import org.example.repo.IRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRepository implements IRepository<User>{
+public class UserRepositoryIM implements IRepository<User> {
     private List<User> users;
-    private static UserRepository instance;
+    private static UserRepositoryIM instance;
 
 
     void insert_values() {
@@ -20,11 +21,11 @@ public class UserRepository implements IRepository<User>{
         save(user3);
         save(user4);
     }
-    private UserRepository() {
+    private UserRepositoryIM() {
         this.users = new ArrayList<>();
         insert_values();
     }
-    public UserRepository(String message) {
+    public UserRepositoryIM(String message) {
         this.users = new ArrayList<>();
     }
 
@@ -54,9 +55,9 @@ public class UserRepository implements IRepository<User>{
     }
 
 
-    public static UserRepository getInstance() {
+    public static UserRepositoryIM getInstance() {
         if (instance == null) {
-            instance = new UserRepository();
+            instance = new UserRepositoryIM();
         }
         return instance;
     }

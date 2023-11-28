@@ -5,11 +5,11 @@ import org.example.repo.IRepository;
 
 import java.util.ArrayList;
 
-public class PortfolioRepository implements IRepository<Portfolio> {
+public class PortfolioRepositoryIM implements IRepository<Portfolio> {
     private ArrayList<Portfolio> portfolios;
-    private static PortfolioRepository instance;
+    private static PortfolioRepositoryIM instance;
 
-    private PortfolioRepository() {
+    private PortfolioRepositoryIM() {
         this.portfolios = new ArrayList<>();
     }
 
@@ -34,9 +34,9 @@ public class PortfolioRepository implements IRepository<Portfolio> {
     }
 
 
-    public static PortfolioRepository getInstance() {
+    public static PortfolioRepositoryIM getInstance() {
         if (instance == null) {
-            instance = new PortfolioRepository();
+            instance = new PortfolioRepositoryIM();
         }
         return instance;
     }

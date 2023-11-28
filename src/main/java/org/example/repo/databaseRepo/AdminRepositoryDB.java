@@ -35,10 +35,10 @@ public class AdminRepositoryDB implements IRepository<Admin> {
 
             while(results.next())
             {
-                int id = results.getInt("id");
+                int id = results.getInt("adminId");
                 String username = results.getString("username");
                 String password = results.getString("password");
-                String adminRole = results.getString("adminRole");
+                String adminRole = results.getString("admin_role");
                 result.add(new Admin(id,username,password,adminRole));
             }
         }
@@ -51,17 +51,17 @@ public class AdminRepositoryDB implements IRepository<Admin> {
 
     @Override
     public void save(Admin admin) {
-        int id = admin.getId();
+        int adminId = admin.getId();
         String username = admin.getUsername();
         String password = admin.getPassword();
-        String adminRole = admin.getAdminRole();
-        String query = "INSERT INTO Admins (id, username, password, adminRole) VALUES (?, ?, ?, ?)";
+        String admin_role = admin.getAdminRole();
+        String query = "INSERT INTO Admins (adminId, username, password, admin_role) VALUES (?, ?, ?, ?)";
         try{
             PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(1, id);
+            statement.setInt(1, adminId);
             statement.setString(2, username);
             statement.setString(3, password);
-            statement.setString(4, adminRole);
+            statement.setString(4, admin_role);
             statement.executeUpdate();
         }
         catch (SQLException e) {

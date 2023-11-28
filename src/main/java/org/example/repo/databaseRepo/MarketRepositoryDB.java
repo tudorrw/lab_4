@@ -35,7 +35,7 @@ public class MarketRepositoryDB implements IRepository<Market> {
 
             while(results.next())
             {
-                int id = results.getInt("id");
+                int id = results.getInt("marketId");
                 String name = results.getString("name");
                 String location = results.getString("location");
                 result.add(new Market(id,name,location));
@@ -53,7 +53,7 @@ public class MarketRepositoryDB implements IRepository<Market> {
         int id = market.getId();
         String name = market.getName();
         String location = market.getLocation();
-        String query = "INSERT INTO Markets (id, name, location) VALUES (?, ?, ?)";
+        String query = "INSERT INTO Markets (marketId, name, location) VALUES (?, ?, ?)";
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
@@ -73,7 +73,7 @@ public class MarketRepositoryDB implements IRepository<Market> {
         String location = entity.getLocation();
 
         try {
-            String query = "UPDATE Markets SET name = ?, location = ? WHERE id = ?;";
+            String query = "UPDATE Markets SET name = ?, location = ? WHERE marketId = ?;";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, name);
             statement.setString(2, location);
@@ -88,7 +88,7 @@ public class MarketRepositoryDB implements IRepository<Market> {
     @Override
     public void delete(Market object) {
         int id = object.getId();
-        String query = "DELETE FROM Markets WHERE id = ?";
+        String query = "DELETE FROM Markets WHERE marketId = ?";
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
@@ -101,7 +101,7 @@ public class MarketRepositoryDB implements IRepository<Market> {
 
     public Market searchId(int id){
         try {
-            String query = "SELECT * FROM Markets WHERE id = ?";
+            String query = "SELECT * FROM Markets WHERE marketId = ?";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
             ResultSet results = statement.executeQuery();

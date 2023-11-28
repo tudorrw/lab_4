@@ -1,7 +1,6 @@
 package org.example.controller;
 
 import org.example.model.Admin;
-import org.example.repo.AdminRepository;
 import org.example.repo.IRepository;
 
 import java.util.List;

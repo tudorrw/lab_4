@@ -4,19 +4,36 @@ import org.example.model.Company;
 import org.example.model.GrowthStock;
 import org.example.model.Market;
 import org.example.repo.IRepository;
+import org.example.repo.RepoTypes;
+import org.example.utils.factory.GrowthStockRepoFactory;
 
 import java.util.List;
 
 public class GrowthStockController {
-    private IRepository<GrowthStock> repository;
+    private IRepository<GrowthStock> growthStockIRepository;
+    private static RepoTypes repoType;
+    private static GrowthStockController instance;
 
-    public GrowthStockController(IRepository<GrowthStock> repository) {
-        this.repository = repository;
+    private GrowthStockController() {
+        if(repoType == null) {
+            throw new RuntimeException("repo type not provided");
+        }
+        growthStockIRepository = GrowthStockRepoFactory.createIRepository(repoType);
     }
 
+    public static GrowthStockController getInstance() {
+        if(instance == null) {
+            instance = new GrowthStockController();
+        }
+        return instance;
+    }
+
+    public static void setRepoType(RepoTypes rT) {
+        repoType = rT;
+    }
     public boolean addGrowthStock(int id, String name, Company company, Market market, int growth_rate){
         if(!this.searchGrowthStockBool(id)) {
-            repository.save(new GrowthStock(id, name, company,market,growth_rate));
+            growthStockIRepository.save(new GrowthStock(id, name, company,market,growth_rate));
             return true;
         }
         else{
@@ -27,7 +44,7 @@ public class GrowthStockController {
     public boolean removeGrowthStock(int id){
         GrowthStock search = this.searchGrowthStock(id);
         if(search != null) {
-            repository.delete(search);
+            growthStockIRepository.delete(search);
             return true;
         }
         else{
@@ -36,11 +53,11 @@ public class GrowthStockController {
     }
 
     public List<GrowthStock> getAll(){
-        return repository.getObjects();
+        return growthStockIRepository.getObjects();
     }
 
     public boolean searchGrowthStockBool(int id){
-        List<GrowthStock> growthStocks = repository.getObjects();
+        List<GrowthStock> growthStocks = growthStockIRepository.getObjects();
         for (GrowthStock growthStock: growthStocks) {
             if(growthStock.getId() == id){
                 return true;
@@ -50,7 +67,7 @@ public class GrowthStockController {
     }
 
     public GrowthStock searchGrowthStock(int id){
-        List<GrowthStock> growthStocks = repository.getObjects();
+        List<GrowthStock> growthStocks = growthStockIRepository.getObjects();
         for (GrowthStock growthStock: growthStocks) {
             if(growthStock.getId() == id){
                 return growthStock;

@@ -35,7 +35,7 @@ public class CompanyRepositoryDB implements IRepository<Company> {
 
             while(results.next())
             {
-                int id = results.getInt("id");
+                int id = results.getInt("companyId");
                 String name = results.getString("name");
                 long capitalization = results.getLong("capitalization");
                 long numberShares = results.getLong("numberShares");
@@ -55,7 +55,7 @@ public class CompanyRepositoryDB implements IRepository<Company> {
         String name = company.getName();
         long capitalization = company.getCapitalization();
         long numberShares =  company.getNumberShares();
-        String query = "INSERT INTO Companies (id, name, capitalization, numberShares) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO Companies (companyId, name, capitalization, numberShares) VALUES (?, ?, ?, ?)";
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
@@ -77,7 +77,7 @@ public class CompanyRepositoryDB implements IRepository<Company> {
         long numberShares =  entity.getNumberShares();
 
         try {
-            String query = "UPDATE Companies SET name = ?, capitalization = ?, numberShares = ?  WHERE id = ?;";
+            String query = "UPDATE Companies SET name = ?, capitalization = ?, numberShares = ?  WHERE companyId = ?;";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
             statement.setString(2, name);
@@ -94,7 +94,7 @@ public class CompanyRepositoryDB implements IRepository<Company> {
     @Override
     public void delete(Company object) {
         int id = object.getId();
-        String query = "DELETE FROM Companies WHERE id = ?";
+        String query = "DELETE FROM Companies WHERE companyId = ?";
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
@@ -107,7 +107,7 @@ public class CompanyRepositoryDB implements IRepository<Company> {
 
     public Company searchId(int id) {
         try {
-            String query = "SELECT * FROM Companies WHERE id = ?";
+            String query = "SELECT * FROM Companies WHERE companyId = ?";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
             ResultSet results = statement.executeQuery();

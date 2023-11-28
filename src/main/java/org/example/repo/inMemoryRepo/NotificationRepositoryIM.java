@@ -5,11 +5,11 @@ import org.example.repo.IRepository;
 
 import java.util.ArrayList;
 
-public class NotificationRepository implements IRepository<Notification> {
+public class NotificationRepositoryIM implements IRepository<Notification> {
     private ArrayList<Notification> notifications;
-    private static NotificationRepository instance;
+    private static NotificationRepositoryIM instance;
 
-    private NotificationRepository() {
+    private NotificationRepositoryIM() {
         this.notifications = new ArrayList<>();
     }
 
@@ -34,9 +34,9 @@ public class NotificationRepository implements IRepository<Notification> {
     }
 
 
-    public static NotificationRepository getInstance() {
+    public static NotificationRepositoryIM getInstance() {
         if (instance == null) {
-            instance = new NotificationRepository();
+            instance = new NotificationRepositoryIM();
         }
         return instance;
     }

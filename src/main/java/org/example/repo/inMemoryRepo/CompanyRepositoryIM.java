@@ -1,14 +1,15 @@
-package org.example.repo;
+package org.example.repo.inMemoryRepo;
 
 import org.example.model.Company;
+import org.example.repo.IRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class CompanyRepository implements IRepository<Company> {
+public class CompanyRepositoryIM implements IRepository<Company> {
     private List<Company> companies;
-    private static CompanyRepository instance;
+    private static CompanyRepositoryIM instance;
 
     void insert_values() {
         Company apple = new Company(1, "Apple Inc.", 2_000_000_000, 10_000);
@@ -18,7 +19,7 @@ public class CompanyRepository implements IRepository<Company> {
         companies.add(boeing);
         companies.add(intel);
     }
-    private CompanyRepository() {
+    private CompanyRepositoryIM() {
 
         this.companies = new ArrayList<>();
         insert_values();
@@ -56,12 +57,11 @@ public class CompanyRepository implements IRepository<Company> {
     }
 
 
-    public static CompanyRepository getInstance() {
+    public static CompanyRepositoryIM getInstance() {
         if (instance == null) {
-            instance = new CompanyRepository();
+            instance = new CompanyRepositoryIM();
         }
         return instance;
     }
-
 
 }

@@ -5,9 +5,9 @@ import org.example.repo.IRepository;
 
 import java.util.ArrayList;
 
-public class MarketRepository implements IRepository<Market> {
+public class MarketRepositoryIM implements IRepository<Market> {
     private ArrayList<Market> markets;
-    private static MarketRepository instance;
+    private static MarketRepositoryIM instance;
 
 
     void insert_values() {
@@ -16,7 +16,7 @@ public class MarketRepository implements IRepository<Market> {
         markets.add(usMarket);
         markets.add(euMarket);
     }
-    private MarketRepository() {
+    private MarketRepositoryIM() {
 
         this.markets = new ArrayList<>();
         insert_values();
@@ -43,9 +43,9 @@ public class MarketRepository implements IRepository<Market> {
     }
 
 
-    public static MarketRepository getInstance() {
+    public static MarketRepositoryIM getInstance() {
         if (instance == null) {
-            instance = new MarketRepository();
+            instance = new MarketRepositoryIM();
         }
         return instance;
     }

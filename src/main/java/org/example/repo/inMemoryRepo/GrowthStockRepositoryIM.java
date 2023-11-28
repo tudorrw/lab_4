@@ -1,15 +1,16 @@
-package org.example.repo;
+package org.example.repo.inMemoryRepo;
 
 import org.example.model.GrowthStock;
+import org.example.repo.IRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GrowthStockRepository implements IRepository<GrowthStock> {
+public class GrowthStockRepositoryIM implements IRepository<GrowthStock> {
     private List<GrowthStock> growthStocks;
-    private static GrowthStockRepository instance;
+    private static GrowthStockRepositoryIM instance;
 
-    private GrowthStockRepository() {
+    private GrowthStockRepositoryIM() {
         this.growthStocks = new ArrayList<>();
     }
 
@@ -33,9 +34,9 @@ public class GrowthStockRepository implements IRepository<GrowthStock> {
         growthStocks.remove(object);
     }
 
-    public static GrowthStockRepository getInstance() {
+    public static GrowthStockRepositoryIM getInstance() {
         if (instance == null) {
-            instance = new GrowthStockRepository();
+            instance = new GrowthStockRepositoryIM();
         }
         return instance;
     }

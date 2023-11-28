@@ -1,18 +1,18 @@
 package org.example.test;
 
 import org.example.model.User;
-import org.example.repo.UserRepository;
+import org.example.repo.inMemoryRepo.UserRepositoryIM;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserRepositoryTest {
-    private UserRepository userRepository;
+    private UserRepositoryIM userRepository;
 
     @BeforeEach
     void setUp(){
-        this.userRepository = UserRepository.getInstance();
+        this.userRepository = UserRepositoryIM.getInstance();
     }
 
     @Test

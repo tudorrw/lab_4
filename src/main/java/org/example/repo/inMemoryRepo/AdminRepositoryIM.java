@@ -1,15 +1,16 @@
-package org.example.repo;
+package org.example.repo.inMemoryRepo;
 
 import org.example.model.Admin;
+import org.example.repo.IRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminRepository implements IRepository<Admin> {
+public class AdminRepositoryIM implements IRepository<Admin> {
     private List<Admin> admins;
-    private static AdminRepository instance;
+    private static AdminRepositoryIM instance;
 
-    private AdminRepository() {
+    private AdminRepositoryIM() {
         this.admins = new ArrayList<>();
     }
 
@@ -33,9 +34,9 @@ public class AdminRepository implements IRepository<Admin> {
         admins.remove(object);
     }
 
-    public static AdminRepository getInstance() {
+    public static AdminRepositoryIM getInstance() {
         if (instance == null) {
-            instance = new AdminRepository();
+            instance = new AdminRepositoryIM();
         }
         return instance;
     }
