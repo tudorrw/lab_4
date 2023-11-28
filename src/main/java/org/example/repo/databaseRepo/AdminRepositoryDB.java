@@ -89,7 +89,6 @@ public class AdminRepositoryDB implements IRepository<Admin> {
         String admin_role = admin.getAdminRole();
         String query = "INSERT INTO Admins (adminId, username, password, admin_role) VALUES (?, ?, ?, ?)";
 
-        this.cache.add(admin);
 
         try{
             PreparedStatement statement = connection.prepareStatement(query);
@@ -98,6 +97,9 @@ public class AdminRepositoryDB implements IRepository<Admin> {
             statement.setString(3, password);
             statement.setString(4, admin_role);
             statement.executeUpdate();
+
+            this.cache.add(admin);
+
         }
         catch (SQLException e) {
             throw new RuntimeException(e);
@@ -139,12 +141,13 @@ public class AdminRepositoryDB implements IRepository<Admin> {
         int id = object.getId();
         String query = "DELETE FROM Admins WHERE id = ?";
 
-        this.cache.remove(searchIdCachePosition(id));
-
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
             statement.executeUpdate();
+
+            this.cache.remove(searchIdCachePosition(id));
+
         }
         catch (SQLException e) {
             throw new RuntimeException(e);

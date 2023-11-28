@@ -1,6 +1,7 @@
 package org.example.repo.databaseRepo;
 
 import org.example.database.DBConnection;
+import org.example.model.Company;
 import org.example.model.Market;
 import org.example.model.User;
 import org.example.repo.IRepository;
@@ -14,9 +15,11 @@ import java.util.List;
 
 public class MarketRepositoryDB implements IRepository<Market> {
 
-    public Connection connection = DBConnection.getConnection();
+    private Connection connection = DBConnection.getConnection();
 
-    public static MarketRepositoryDB instance;
+    private static MarketRepositoryDB instance;
+
+    private List<Market> cache;
 
     public static MarketRepositoryDB getInstance() {
         if(instance == null) {
@@ -25,8 +28,11 @@ public class MarketRepositoryDB implements IRepository<Market> {
         return instance;
     }
 
-    @Override
-    public List<Market> getObjects() {
+    public MarketRepositoryDB() {
+        this.cache = importCache();
+    }
+
+    private List<Market> importCache(){
         List<Market> result = new ArrayList<>();
         try {
             String query = "SELECT * FROM Markets";
@@ -35,7 +41,7 @@ public class MarketRepositoryDB implements IRepository<Market> {
 
             while(results.next())
             {
-                int id = results.getInt("marketId");
+                int id = results.getInt("companyId");
                 String name = results.getString("name");
                 String location = results.getString("location");
                 result.add(new Market(id,name,location));
@@ -48,18 +54,49 @@ public class MarketRepositoryDB implements IRepository<Market> {
         return result;
     }
 
+
+    public Market searchIdCache(int id) {
+        for(Market market: this.cache){
+            if (market.getId() == id){
+                return market;
+            }
+        }
+
+        return null;
+    }
+
+    public int searchIdCachePosition(int id) {
+        for(int i = 0 ;i < this.cache.size(); i++){
+            if (cache.get(i).getId() == id){
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    @Override
+    public List<Market> getObjects() {
+        return this.cache;
+    }
+
     @Override
     public void save(Market market) {
         int id = market.getId();
         String name = market.getName();
         String location = market.getLocation();
         String query = "INSERT INTO Markets (marketId, name, location) VALUES (?, ?, ?)";
+
+
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
             statement.setString(2, name);
             statement.setString(3, location);
             statement.executeUpdate();
+
+            this.cache.add(market);
+
         }
         catch (SQLException e) {
             throw new RuntimeException(e);
@@ -72,15 +109,21 @@ public class MarketRepositoryDB implements IRepository<Market> {
         String name = entity.getName();
         String location = entity.getLocation();
 
-        try {
-            String query = "UPDATE Markets SET name = ?, location = ? WHERE marketId = ?;";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, name);
-            statement.setString(2, location);
-            statement.executeUpdate();
-        }
-        catch (SQLException e) {
-            throw new RuntimeException(e);
+        Market old_market = searchIdCache(id);
+
+        if(old_market !=null) {
+            try {
+                String query = "UPDATE Markets SET name = ?, location = ? WHERE marketId = ?;";
+                PreparedStatement statement = connection.prepareStatement(query);
+                statement.setString(1, name);
+                statement.setString(2, location);
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+            old_market.setName(name);
+            old_market.setLocation(location);
         }
 
     }
@@ -93,27 +136,14 @@ public class MarketRepositoryDB implements IRepository<Market> {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
             statement.executeUpdate();
+
+            this.cache.remove(searchIdCachePosition(id));
+
         }
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public Market searchId(int id){
-        try {
-            String query = "SELECT * FROM Markets WHERE marketId = ?";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(1, id);
-            ResultSet results = statement.executeQuery();
-            if (results.next())
-            {
-                Market market = new Market(id,"","");
-                market.setName(results.getString("name"));
-                return market;
-            }
-        }  catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return null;
-    }
+
 }

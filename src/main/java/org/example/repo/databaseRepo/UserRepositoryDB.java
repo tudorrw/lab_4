@@ -1,6 +1,7 @@
 package org.example.repo.databaseRepo;
 
 import org.example.database.DBConnection;
+import org.example.model.Admin;
 import org.example.model.User;
 import org.example.repo.IRepository;
 
@@ -13,22 +14,20 @@ import java.util.List;
 
 public class UserRepositoryDB implements IRepository<User> {
 
-    public Connection connection = DBConnection.getConnection();
+    private Connection connection = DBConnection.getConnection();
 
-    public static UserRepositoryDB instance;
+    private static UserRepositoryDB instance;
 
-    public static UserRepositoryDB getInstance() {
-        if(instance == null) {
-            instance = new UserRepositoryDB();
-        }
-        return instance;
+    private List<User> cache;
+
+    public UserRepositoryDB() {
+        this.cache = importCache();
     }
 
-    @Override
-    public List<User> getObjects() {
+    private List<User> importCache(){
         List<User> result = new ArrayList<>();
         try {
-            String query = "SELECT * FROM USERS";
+            String query = "SELECT * FROM Users";
             PreparedStatement statement = connection.prepareStatement(query);
             ResultSet results = statement.executeQuery();
 
@@ -47,6 +46,39 @@ public class UserRepositoryDB implements IRepository<User> {
         return result;
     }
 
+
+    public User searchIdCache(int id) {
+        for(User user: this.cache){
+            if (user.getId() == id){
+                return user;
+            }
+        }
+
+        return null;
+    }
+
+    public int searchIdCachePosition(int id) {
+        for(int i = 0 ;i < this.cache.size(); i++){
+            if (cache.get(i).getId() == id){
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public static UserRepositoryDB getInstance() {
+        if(instance == null) {
+            instance = new UserRepositoryDB();
+        }
+        return instance;
+    }
+
+    @Override
+    public List<User> getObjects() {
+        return this.cache;
+    }
+
     @Override
     public void save(User user) {
         int id = user.getId();
@@ -54,11 +86,14 @@ public class UserRepositoryDB implements IRepository<User> {
         String password = user.getPassword();
         String query = "INSERT INTO Users (userId, username, password) VALUES (?, ?, ?)";
         try{
-        PreparedStatement statement = connection.prepareStatement(query);
-        statement.setInt(1, id);
-        statement.setString(2, username);
-        statement.setString(3, password);
-        statement.executeUpdate();
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, id);
+            statement.setString(2, username);
+            statement.setString(3, password);
+            statement.executeUpdate();
+
+            this.cache.add(user);
+
         }
         catch (SQLException e) {
             throw new RuntimeException(e);
@@ -71,15 +106,21 @@ public class UserRepositoryDB implements IRepository<User> {
         String username = entity.getUsername();
         String password = entity.getPassword();
 
-        try {
-            String query = "UPDATE Users SET username = ?, password = ? WHERE userId = ?;";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, username);
-            statement.setString(2, password);
-            statement.executeUpdate();
-        }
-        catch (SQLException e) {
-            throw new RuntimeException(e);
+        User old_user = searchIdCache(id);
+
+        if(old_user != null) {
+            try {
+                String query = "UPDATE Users SET username = ?, password = ? WHERE userId = ?;";
+                PreparedStatement statement = connection.prepareStatement(query);
+                statement.setString(1, username);
+                statement.setString(2, password);
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+            old_user.setUsername(username);
+            old_user.setPassword(password);
         }
 
     }
@@ -92,6 +133,9 @@ public class UserRepositoryDB implements IRepository<User> {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
             statement.executeUpdate();
+
+            this.cache.remove(searchIdCachePosition(id));
+
         }
         catch (SQLException e) {
             throw new RuntimeException(e);

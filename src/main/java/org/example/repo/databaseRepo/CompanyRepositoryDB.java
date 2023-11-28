@@ -1,6 +1,7 @@
 package org.example.repo.databaseRepo;
 
 import org.example.database.DBConnection;
+import org.example.model.Admin;
 import org.example.model.Company;
 import org.example.model.Market;
 import org.example.model.User;
@@ -14,9 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompanyRepositoryDB implements IRepository<Company> {
-    public Connection connection = DBConnection.getConnection();
+    private Connection connection = DBConnection.getConnection();
 
-    public static CompanyRepositoryDB instance;
+    private static CompanyRepositoryDB instance;
+
+    private List<Company> cache;
 
     public static CompanyRepositoryDB getInstance() {
         if(instance == null) {
@@ -25,8 +28,11 @@ public class CompanyRepositoryDB implements IRepository<Company> {
         return instance;
     }
 
-    @Override
-    public List<Company> getObjects() {
+    public CompanyRepositoryDB() {
+        this.cache = importCache();
+    }
+
+    private List<Company> importCache(){
         List<Company> result = new ArrayList<>();
         try {
             String query = "SELECT * FROM Companies";
@@ -49,6 +55,32 @@ public class CompanyRepositoryDB implements IRepository<Company> {
         return result;
     }
 
+
+    public Company searchIdCache(int id) {
+        for(Company company: this.cache){
+            if (company.getId() == id){
+                return company;
+            }
+        }
+
+        return null;
+    }
+
+    public int searchIdCachePosition(int id) {
+        for(int i = 0 ;i < this.cache.size(); i++){
+            if (cache.get(i).getId() == id){
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    @Override
+    public List<Company> getObjects() {
+        return this.cache;
+    }
+
     @Override
     public void save(Company company) {
         int id = company.getId();
@@ -56,6 +88,7 @@ public class CompanyRepositoryDB implements IRepository<Company> {
         long capitalization = company.getCapitalization();
         long numberShares =  company.getNumberShares();
         String query = "INSERT INTO Companies (companyId, name, capitalization, numberShares) VALUES (?, ?, ?, ?)";
+
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
@@ -63,6 +96,9 @@ public class CompanyRepositoryDB implements IRepository<Company> {
             statement.setLong(3, capitalization);
             statement.setLong(4, numberShares);
             statement.executeUpdate();
+
+            this.cache.add(company);
+
         }
         catch (SQLException e) {
             throw new RuntimeException(e);
@@ -76,17 +112,24 @@ public class CompanyRepositoryDB implements IRepository<Company> {
         long capitalization = entity.getCapitalization();
         long numberShares =  entity.getNumberShares();
 
-        try {
-            String query = "UPDATE Companies SET name = ?, capitalization = ?, numberShares = ?  WHERE companyId = ?;";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(1, id);
-            statement.setString(2, name);
-            statement.setLong(3, capitalization);
-            statement.setLong(4, numberShares);
-            statement.executeUpdate();
-        }
-        catch (SQLException e) {
-            throw new RuntimeException(e);
+        Company old_company = searchIdCache(id);
+
+        if(old_company !=null) {
+            try {
+                String query = "UPDATE Companies SET name = ?, capitalization = ?, numberShares = ?  WHERE companyId = ?;";
+                PreparedStatement statement = connection.prepareStatement(query);
+                statement.setInt(1, id);
+                statement.setString(2, name);
+                statement.setLong(3, capitalization);
+                statement.setLong(4, numberShares);
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+            old_company.setName(name);
+            old_company.setCapitalization(capitalization);
+            old_company.setNumberShares(numberShares);
         }
 
     }
@@ -95,33 +138,18 @@ public class CompanyRepositoryDB implements IRepository<Company> {
     public void delete(Company object) {
         int id = object.getId();
         String query = "DELETE FROM Companies WHERE companyId = ?";
+
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
             statement.executeUpdate();
+
+            this.cache.remove(searchIdCachePosition(id));
+
         }
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public Company searchId(int id) {
-        try {
-            String query = "SELECT * FROM Companies WHERE companyId = ?";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(1, id);
-            ResultSet results = statement.executeQuery();
-            if (results.next())
-            {
-                Company company = new Company(id,"",0,0);
-                company.setName(results.getString("name"));
-                company.setCapitalization(results.getLong("capitalization"));
-                company.setNumberShares(results.getLong("numberShares"));
-                return company;
-            }
-        }  catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return null;
-    }
 }
