@@ -4,10 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="database">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="database connection done">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/ValueStockRepositoryDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/factory/AdminRepoFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/factory/ValueStockRepoFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8bb3093e-bfc8-4c71-a7eb-1d796e9ed3bb/storage_v2/_src_/schema/stockApp.K6uIZQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8bb3093e-bfc8-4c71-a7eb-1d796e9ed3bb/storage_v2/_src_/schema/stockApp.K6uIZQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ValueStockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ValueStockController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/AdminRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/AdminRepositoryDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/CompanyRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/CompanyRepositoryDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/GrowthStockRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/GrowthStockRepositoryDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/MarketRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/MarketRepositoryDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/UserRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/UserRepositoryDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/AdminView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/StockView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/StockView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -374,7 +387,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701167152240</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="database connection done">
+      <option name="closed" value="true" />
+      <created>1701201259682</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1701201259682</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -448,7 +469,8 @@
     <MESSAGE value="Basic User Database Repo" />
     <MESSAGE value="Basic Admin and Company Database Repo" />
     <MESSAGE value="database" />
-    <option name="LAST_COMMIT_MESSAGE" value="database" />
+    <MESSAGE value="database connection done" />
+    <option name="LAST_COMMIT_MESSAGE" value="database connection done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -171,7 +171,7 @@ public class AdminView implements IPersonView {
                         break;
                     case 4:
                         System.out.println("See all growth stocks functionality");
-                        stockView.getAllValueStocksDetails();
+                        stockView.getAllGrowthStocksDetails();
                         break;
                     case 5:
                         System.out.println("Update stocks functionality");

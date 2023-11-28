@@ -2,19 +2,36 @@ package org.example.controller;
 
 import org.example.model.Admin;
 import org.example.repo.IRepository;
+import org.example.repo.RepoTypes;
+import org.example.utils.factory.AdminRepoFactory;
 
 import java.util.List;
 
 public class AdminController {
-    private IRepository<Admin> adminRepository;
+    private IRepository<Admin> adminIRepository;
+    private static RepoTypes repoType;
+    private static AdminController instance;
     private int adminIdCounter;
-    public AdminController(IRepository<Admin> adminRepository) {
-        this.adminRepository = adminRepository;
-        this.adminIdCounter = adminRepository.getObjects().size() + 1;
+    private AdminController() {
+        if(repoType == null) {
+            throw new RuntimeException("repo type not provided");
+        }
+        this.adminIRepository = AdminRepoFactory.createIRepository(repoType);
+        this.adminIdCounter = adminIRepository.getObjects().size() + 1;
+    }
+
+    public static void setRepoType(RepoTypes rT) {
+        repoType = rT;
+    }
+    public static AdminController getInstance() {
+        if(instance == null) {
+            instance = new AdminController();
+        }
+        return instance;
     }
 
     public Admin findAdmin(String username) {
-        List<Admin> database = adminRepository.getObjects();
+        List<Admin> database = adminIRepository.getObjects();
         for(Admin admin: database) {
             if(admin.getUsername() == username){
                 return admin;
@@ -27,7 +44,7 @@ public class AdminController {
             return false;
         }
         Admin newAdmin = new Admin(adminIdCounter++, username, password, adminRole);
-        adminRepository.save(newAdmin);
+        adminIRepository.save(newAdmin);
         return true;
     }
 
@@ -40,7 +57,7 @@ public class AdminController {
         if(admin == null) {
             return false;
         }
-        adminRepository.delete(admin);
+        adminIRepository.delete(admin);
         return true;
     }
 }

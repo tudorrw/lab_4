@@ -4,8 +4,6 @@ package org.example.view;
 import org.example.controller.*;
 import org.example.repo.*;
 import org.example.repo.inMemoryRepo.AdminRepositoryIM;
-import org.example.repo.inMemoryRepo.CompanyRepositoryIM;
-import org.example.repo.inMemoryRepo.MarketRepositoryIM;
 import org.example.repo.inMemoryRepo.ValueStockRepositoryIM;
 import org.example.utils.factory.PersonViewFactory;
 
@@ -91,8 +89,9 @@ public class View {
 
     private void selectRepoTypes() {
         RepoTypes repoType = selectRepoType();
-        this.adminController =  new AdminController(AdminRepositoryIM.getInstance());
-        this.valueStockController = new ValueStockController(ValueStockRepositoryIM.getInstance());
+
+        adminController.setRepoType(repoType);
+        adminController = AdminController.getInstance();
 
         userController.setRepoType(repoType);
         userController = UserController.getInstance();
@@ -100,12 +99,13 @@ public class View {
         growthStockController.setRepoType(repoType);
         growthStockController = GrowthStockController.getInstance();
 
+        valueStockController.setRepoType(repoType);
+        valueStockController = ValueStockController.getInstance();
+
         companyController.setRepoType(repoType);
         companyController = CompanyController.getInstance();
 
         marketController.setRepoType(repoType);
         marketController = MarketController.getInstance();
-
-
     }
 }

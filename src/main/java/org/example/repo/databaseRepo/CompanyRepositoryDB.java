@@ -1,7 +1,6 @@
 package org.example.repo.databaseRepo;
 
 import org.example.database.DBConnection;
-import org.example.model.Admin;
 import org.example.model.Company;
 import org.example.model.Market;
 import org.example.model.User;
