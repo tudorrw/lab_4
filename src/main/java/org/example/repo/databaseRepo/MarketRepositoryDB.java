@@ -41,7 +41,7 @@ public class MarketRepositoryDB implements IRepository<Market> {
 
             while(results.next())
             {
-                int id = results.getInt("companyId");
+                int id = results.getInt("marketId");
                 String name = results.getString("name");
                 String location = results.getString("location");
                 result.add(new Market(id,name,location));

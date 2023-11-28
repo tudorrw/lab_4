@@ -44,12 +44,12 @@ public class ValueStockRepositoryDB implements IRepository<ValueStock> {
             {
                 int id = results.getInt("valueStockId");
                 String name = results.getString("name");
-                int company_id = results.getInt("CompanyId");
-                int market_id = results.getInt("MarketId");
+                int company_id = results.getInt("companyId");
+                int market_id = results.getInt("marketId");
                 double dividend_rate = results.getDouble("dividend_rate");
 
-                Company company = companyRepositoryDB.searchId(company_id);
-                Market market = marketRepositoryDB.searchId(market_id);
+                Company company = companyRepositoryDB.searchIdCache(company_id);
+                Market market = marketRepositoryDB.searchIdCache(market_id);
                 result.add(new ValueStock(id,name,company,market,dividend_rate));
             }
         }

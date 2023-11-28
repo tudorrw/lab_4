@@ -21,7 +21,7 @@ public class GrowthStockRepositoryDB implements IRepository<GrowthStock> {
     private MarketRepositoryDB marketRepositoryDB;
     private CompanyRepositoryDB companyRepositoryDB;
 
-    private GrowthStockRepositoryDB() {
+    public GrowthStockRepositoryDB() {
         this.marketRepositoryDB = MarketRepositoryDB.getInstance();
         this.companyRepositoryDB = CompanyRepositoryDB.getInstance();
     }
@@ -45,12 +45,12 @@ public class GrowthStockRepositoryDB implements IRepository<GrowthStock> {
             {
                 int id = results.getInt("growthStockId");
                 String name = results.getString("name");
-                int company_id = results.getInt("CompanyId");
-                int market_id = results.getInt("MarketId");
+                int company_id = results.getInt("companyId");
+                int market_id = results.getInt("marketId");
                 int growth_rate = results.getInt("growth_rate");
 
-                Company company = companyRepositoryDB.searchId(company_id);
-                Market market = marketRepositoryDB.searchId(market_id);
+                Company company = companyRepositoryDB.searchIdCache(company_id);
+                Market market = marketRepositoryDB.searchIdCache(market_id);
                 result.add(new GrowthStock(id,name,company,market,growth_rate));
             }
         }
@@ -62,12 +62,12 @@ public class GrowthStockRepositoryDB implements IRepository<GrowthStock> {
     }
 
     @Override
-    public void save(GrowthStock entity) {
-        int id = entity.getId();
-        String name = entity.getName();
-        int company = entity.getCompany().getId();
-        int market = entity.getMarket().getId();
-        int growth_rate = entity.getGrowth_rate();
+    public void save(GrowthStock growthStock) {
+        int id = growthStock.getId();
+        String name = growthStock.getName();
+        int company = growthStock.getCompany().getId();
+        int market = growthStock.getMarket().getId();
+        int growth_rate = growthStock.getGrowth_rate();
         String query = "INSERT INTO GrowthStocks (growthStockId, name, companyId, marketId, growth_rate) VALUES (?, ?, ?, ?, ?)";
         try{
             PreparedStatement statement = connection.prepareStatement(query);
