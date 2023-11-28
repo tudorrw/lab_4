@@ -59,7 +59,6 @@ public class StockView {
         } else {
             System.out.println("Value Stock added succesfully");
         }
-
     }
 
     public void addGrowth() {
@@ -67,7 +66,7 @@ public class StockView {
         System.out.print("Enter a growth stock id: ");
         int stockid = input.nextInt();
         input.nextLine();
-        System.out.print("Enter groth stock Name: ");
+        System.out.print("Enter growth stock Name: ");
         String stockName = input.nextLine();
         if (stockName.isEmpty()) {
             System.out.println("Invalid stock name!");
@@ -80,7 +79,10 @@ public class StockView {
         }
 
         Company company1 = companyController.searchCompany(company);
-
+        if(company1 == null) {
+            System.out.println("Inexistent Company!");
+            return;
+        }
         System.out.print("Enter market Name: ");
         String market = input.nextLine();
         if (market.isEmpty()) {
@@ -88,6 +90,10 @@ public class StockView {
         }
 
         Market market1 = marketController.searchMarket(market);
+        if(market1 == null) {
+            System.out.println("Inexistent Company!");
+            return;
+        }
         System.out.print("Enter growth stock rate: ");
         int rate = input.nextInt();
         input.nextLine();

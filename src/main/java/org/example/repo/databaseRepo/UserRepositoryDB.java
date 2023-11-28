@@ -15,7 +15,7 @@ public class UserRepositoryDB implements IRepository<User> {
 
     public Connection connection = DBConnection.getConnection();
 
-    public static UserRepositoryDB instance;
+    private static UserRepositoryDB instance;
 
     public static UserRepositoryDB getInstance() {
         if(instance == null) {

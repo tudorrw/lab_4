@@ -14,7 +14,7 @@ public class CompanyController {
     private static CompanyController instance;
     private int companyIdCounter;
 
-    public CompanyController() {
+    private CompanyController() {
         if(repoType == null) {
             throw new RuntimeException("repo type not provided");
         }
@@ -67,6 +67,7 @@ public class CompanyController {
     public Company searchCompany(String name) {
         List<Company> companies = companyIRepository.getObjects();
         for (Company company : companies) {
+            System.out.println(company.getName());
             if (company.getName().equals(name)) {
                 return company;
             }

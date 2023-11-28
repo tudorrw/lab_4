@@ -16,7 +16,7 @@ import java.util.List;
 public class CompanyRepositoryDB implements IRepository<Company> {
     public Connection connection = DBConnection.getConnection();
 
-    public static CompanyRepositoryDB instance;
+    private static CompanyRepositoryDB instance;
 
     public static CompanyRepositoryDB getInstance() {
         if(instance == null) {

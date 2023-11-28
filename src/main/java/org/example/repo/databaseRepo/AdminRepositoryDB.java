@@ -16,7 +16,7 @@ import java.util.List;
 public class AdminRepositoryDB implements IRepository<Admin> {
     public Connection connection = DBConnection.getConnection();
 
-    public static AdminRepositoryDB instance;
+    private static AdminRepositoryDB instance;
 
     public static AdminRepositoryDB getInstance() {
         if(instance == null) {

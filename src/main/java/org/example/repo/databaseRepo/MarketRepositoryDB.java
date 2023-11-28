@@ -16,7 +16,7 @@ public class MarketRepositoryDB implements IRepository<Market> {
 
     public Connection connection = DBConnection.getConnection();
 
-    public static MarketRepositoryDB instance;
+    private static MarketRepositoryDB instance;
 
     public static MarketRepositoryDB getInstance() {
         if(instance == null) {

@@ -1,10 +1,10 @@
 package org.example.repo.databaseRepo;
 
 import org.example.database.DBConnection;
-import org.example.model.Admin;
 import org.example.model.Company;
 import org.example.model.GrowthStock;
 import org.example.model.Market;
+import org.example.model.ValueStock;
 import org.example.repo.IRepository;
 
 import java.sql.Connection;
@@ -14,44 +14,43 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GrowthStockRepositoryDB implements IRepository<GrowthStock> {
+public class ValueStockRepositoryDB implements IRepository<ValueStock> {
     private final Connection connection = DBConnection.getConnection();
 
-    public static GrowthStockRepositoryDB instance;
+    private static ValueStockRepositoryDB instance;
     private MarketRepositoryDB marketRepositoryDB;
     private CompanyRepositoryDB companyRepositoryDB;
 
-    private GrowthStockRepositoryDB() {
+    private ValueStockRepositoryDB() {
         this.marketRepositoryDB = MarketRepositoryDB.getInstance();
         this.companyRepositoryDB = CompanyRepositoryDB.getInstance();
     }
 
-    public static GrowthStockRepositoryDB getInstance() {
+    public static ValueStockRepositoryDB getInstance() {
         if(instance == null) {
-            instance = new GrowthStockRepositoryDB();
+            instance = new ValueStockRepositoryDB();
         }
         return instance;
     }
-
     @Override
-    public List<GrowthStock> getObjects() {
-        List<GrowthStock> result = new ArrayList<>();
+    public List<ValueStock> getObjects() {
+        List<ValueStock> result = new ArrayList<>();
         try {
-            String query = "SELECT * FROM GrowthStocks";
+            String query = "SELECT * FROM ValueStocks";
             PreparedStatement statement = connection.prepareStatement(query);
             ResultSet results = statement.executeQuery();
 
             while(results.next())
             {
-                int id = results.getInt("growthStockId");
+                int id = results.getInt("valueStockId");
                 String name = results.getString("name");
                 int company_id = results.getInt("CompanyId");
                 int market_id = results.getInt("MarketId");
-                int growth_rate = results.getInt("growth_rate");
+                double dividend_rate = results.getDouble("dividend_rate");
 
                 Company company = companyRepositoryDB.searchId(company_id);
                 Market market = marketRepositoryDB.searchId(market_id);
-                result.add(new GrowthStock(id,name,company,market,growth_rate));
+                result.add(new ValueStock(id,name,company,market,dividend_rate));
             }
         }
         catch (SQLException e) {
@@ -62,20 +61,20 @@ public class GrowthStockRepositoryDB implements IRepository<GrowthStock> {
     }
 
     @Override
-    public void save(GrowthStock entity) {
+    public void save(ValueStock entity) {
         int id = entity.getId();
         String name = entity.getName();
         int company = entity.getCompany().getId();
         int market = entity.getMarket().getId();
-        int growth_rate = entity.getGrowth_rate();
-        String query = "INSERT INTO GrowthStocks (growthStockId, name, companyId, marketId, growth_rate) VALUES (?, ?, ?, ?, ?)";
+        double dividend_rate = entity.getDividend_rate();
+        String query = "INSERT INTO ValueStocks (valueStockId, name, companyId, marketId, dividend_rate) VALUES (?, ?, ?, ?, ?)";
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
             statement.setString(2, name);
             statement.setInt(3, company);
             statement.setInt(4, market);
-            statement.setInt(5, growth_rate);
+            statement.setDouble(5, dividend_rate);
             statement.executeUpdate();
         }
         catch (SQLException e) {
@@ -84,33 +83,32 @@ public class GrowthStockRepositoryDB implements IRepository<GrowthStock> {
     }
 
     @Override
-    public void update(GrowthStock entity) {
+    public void update(ValueStock entity) {
         int id = entity.getId();
         String name = entity.getName();
         int company = entity.getCompany().getId();
         int market = entity.getMarket().getId();
-        int growth_rate = entity.getGrowth_rate();
+        double dividend_rate = entity.getDividend_rate();
 
         try {
-            String query = "UPDATE GrowthStocks SET name = ?, companyId = ?, marketId = ?, growth_rate = ? WHERE growthStockId = ?;";
+            String query = "UPDATE ValueStocks SET name = ?, companyId = ?, marketId = ?, dividend_rate = ? WHERE valueStockId = ?;";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(5, id);
             statement.setString(1, name);
             statement.setInt(2, company);
             statement.setInt(3, market);
-            statement.setInt(4, growth_rate);
+            statement.setDouble(4, dividend_rate);
             statement.executeUpdate();
         }
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @Override
-    public void delete(GrowthStock object) {
+    public void delete(ValueStock object) {
         int id = object.getId();
-        String query = "DELETE FROM GrowthStocks WHERE growthStockId = ?";
+        String query = "DELETE FROM ValueStocks WHERE valueStockId = ?";
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
