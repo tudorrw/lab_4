@@ -32,6 +32,30 @@ public class CompanyRepositoryDB implements IRepository<Company> {
     public CompanyRepositoryDB() {
         this.cache = importCache();
     }
+    public Company searchById(int id) {
+        List<Company> result = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM Companies WHERE companyId = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, id);
+            ResultSet results = statement.executeQuery();
+            while(results.next())
+            {
+                int id_repository = results.getInt("companyId");
+                String name = results.getString("name");
+                long capitalization = results.getLong("capitalization");
+                long numberShares = results.getLong("numberShares");
+                result.add(new Company(id_repository,name,capitalization,numberShares));
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        if(result.isEmpty()) {
+            return null;
+        }
+        return result.getFirst();
+    }
 
     private List<Company> importCache(){
         List<Company> result = new ArrayList<>();

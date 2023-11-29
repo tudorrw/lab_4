@@ -1,7 +1,6 @@
 package org.example.test3;
 import org.example.database.DBConnection;
 import org.example.model.Company;
-import org.example.repo.IRepository;
 import org.example.repo.databaseRepo.CompanyRepositoryDB;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class RepoDBTest {
 
-    private IRepository<Company> companyIRepository;
+    private CompanyRepositoryDB companyIRepository;
     @BeforeEach
     void setUp() {
         setConnection();
@@ -32,17 +31,21 @@ public class RepoDBTest {
 
         Company company = new Company(100,"Tesla", 100, 1);
         companyIRepository.save(company);
-        Company company1 = ((CompanyRepositoryDB) companyIRepository).searchIdCache(100);
-        assertEquals(company1, company, "equal objects");
+        Company company1 = companyIRepository.searchById(100);
+        assertEquals(company1.getId(), company.getId());
+        assertEquals(company1.getName(), company.getName());
+        assertEquals(company1.getCapitalization(), company.getCapitalization());
+        assertEquals(company1.getNumberShares(), company.getNumberShares());
+
     }
-    @Test
+   @Test
     void deleteCompany() {
 
-        Company company1 = ((CompanyRepositoryDB) companyIRepository).searchIdCache(100);
+        Company company1 = companyIRepository.searchById(100);
         if(company1 != null) {
             companyIRepository.delete(company1);
         }
-        Company deletedCompany = ((CompanyRepositoryDB) companyIRepository).searchIdCache(100);
-        assertNull(deletedCompany, "Company should be deleted");
+       Company deletedCompany = companyIRepository.searchById(100);
+       assertNull(deletedCompany, "Company should be deleted");
     }
 }

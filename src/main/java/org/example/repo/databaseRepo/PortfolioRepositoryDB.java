@@ -19,7 +19,6 @@ public class PortfolioRepositoryDB implements IRepository<Portfolio> {
     private UserRepositoryDB userRepositoryDB;
     private GrowthStockRepositoryDB growthStockRepositoryDB;
     private ValueStockRepositoryDB valueStockRepositoryDB;
-
     private List<Portfolio> cache;
 
     public PortfolioRepositoryDB() {
@@ -38,7 +37,7 @@ public class PortfolioRepositoryDB implements IRepository<Portfolio> {
 
             while(results.next())
             {
-                int id = results.getInt("transactionId");
+                int id = results.getInt("portfolioId");
                 User user = userRepositoryDB.searchIdCache(results.getInt("userId"));
                 double cash = results.getInt("cash");
 

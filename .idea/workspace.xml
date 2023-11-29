@@ -5,25 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="database">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/NotificationRepositoryDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/PortfolioRepositoryDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/TransactionRepositoryDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/NotificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/PortfolioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/PortfolioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/TransactionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Notification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Portfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Portfolio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Stock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/ValueStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/ValueStock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/AdminRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/AdminRepositoryDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/CompanyRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/CompanyRepositoryDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/GrowthStockRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/GrowthStockRepositoryDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/MarketRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/MarketRepositoryDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/UserRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/UserRepositoryDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/ValueStockRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/ValueStockRepositoryDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/PortfolioRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/PortfolioRepositoryDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/test3/RepoDBTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/test3/RepoDBTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +108,7 @@
       <recent name="org.example.test" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.RepoDBTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="lab_2" />
@@ -132,6 +118,53 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RepoDBTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.test3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.test3" />
+      <option name="MAIN_CLASS_NAME" value="org.example.test3.RepoDBTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RepoDBTest.addCompany" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.test3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.test3" />
+      <option name="MAIN_CLASS_NAME" value="org.example.test3.RepoDBTest" />
+      <option name="METHOD_NAME" value="addCompany" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RepoDBTest.deleteCompany" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.test3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.test3" />
+      <option name="MAIN_CLASS_NAME" value="org.example.test3.RepoDBTest" />
+      <option name="METHOD_NAME" value="deleteCompany" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -166,6 +199,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RepoDBTest" />
+        <item itemvalue="JUnit.RepoDBTest.deleteCompany" />
+        <item itemvalue="JUnit.RepoDBTest.addCompany" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UserControllerTest" />
       </list>
@@ -482,9 +518,9 @@
           <option name="timeStamp" value="7" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/TransactionRepositoryDB.java</url>
-          <line>111</line>
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/ValueStockRepositoryDB.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
