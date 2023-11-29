@@ -122,6 +122,7 @@ public class AdminRepositoryDB implements IRepository<Admin> {
                 statement.setString(1, username);
                 statement.setString(2, password);
                 statement.setString(3, adminRole);
+                statement.setInt(4, id);
                 statement.executeUpdate();
             }
             catch (SQLException e) {

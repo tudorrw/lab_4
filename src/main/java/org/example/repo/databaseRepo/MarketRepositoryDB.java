@@ -117,6 +117,7 @@ public class MarketRepositoryDB implements IRepository<Market> {
                 PreparedStatement statement = connection.prepareStatement(query);
                 statement.setString(1, name);
                 statement.setString(2, location);
+                statement.setInt(3, id);
                 statement.executeUpdate();
             } catch (SQLException e) {
                 throw new RuntimeException(e);

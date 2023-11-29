@@ -1,18 +1,17 @@
 package org.example.model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Transaction {
     private int id;
-    private int user_id;
-    private int stock_id;
+    private User user;
+    private Stock stock;
     private LocalDateTime date;
 
-    public Transaction(int id, int user_id, int stock_id, LocalDateTime date) {
+    public Transaction(int id, User user, Stock stock, LocalDateTime date) {
         this.id = id;
-        this.user_id = user_id;
-        this.stock_id = stock_id;
+        this.user = user;
+        this.stock = stock;
         this.date = date;
     }
 
@@ -25,20 +24,20 @@ public class Transaction {
         this.id = id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public int getStock_id() {
-        return stock_id;
+    public Stock getStock() {
+        return stock;
     }
 
-    public void setStock_id(int stock_id) {
-        this.stock_id = stock_id;
+    public void setStock(Stock stock) {
+        this.stock = stock;
     }
 
     public LocalDateTime getDate() {

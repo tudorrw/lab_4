@@ -2,6 +2,7 @@ package org.example.controller;
 
 
 import org.example.model.Notification;
+import org.example.model.User;
 import org.example.repo.IRepository;
 
 import java.time.LocalDateTime;
@@ -14,9 +15,9 @@ public class NotificationController {
         this.repository = repository;
     }
 
-    public boolean addNotification(int userId, int id, String message, LocalDateTime timestamp, String status){
+    public boolean addNotification(int id, User user, String message, LocalDateTime timestamp, String status){
         if(!this.searchNotificationBool(id)) {
-            repository.save(new Notification(userId,id, message, timestamp,status));
+            repository.save(new Notification(id,user, message, timestamp,status));
             return true;
         }
         else{

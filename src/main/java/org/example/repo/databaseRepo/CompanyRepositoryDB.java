@@ -18,6 +18,8 @@ public class CompanyRepositoryDB implements IRepository<Company> {
 
     private static CompanyRepositoryDB instance;
 
+
+
     private List<Company> cache;
 
     public static CompanyRepositoryDB getInstance() {
@@ -117,10 +119,10 @@ public class CompanyRepositoryDB implements IRepository<Company> {
             try {
                 String query = "UPDATE Companies SET name = ?, capitalization = ?, numberShares = ?  WHERE companyId = ?;";
                 PreparedStatement statement = connection.prepareStatement(query);
-                statement.setInt(1, id);
-                statement.setString(2, name);
-                statement.setLong(3, capitalization);
-                statement.setLong(4, numberShares);
+                statement.setInt(4, id);
+                statement.setString(1, name);
+                statement.setLong(2, capitalization);
+                statement.setLong(3, numberShares);
                 statement.executeUpdate();
             } catch (SQLException e) {
                 throw new RuntimeException(e);

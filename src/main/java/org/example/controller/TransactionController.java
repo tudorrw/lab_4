@@ -1,7 +1,9 @@
 package org.example.controller;
 
 
+import org.example.model.Stock;
 import org.example.model.Transaction;
+import org.example.model.User;
 import org.example.repo.IRepository;
 
 import java.time.LocalDateTime;
@@ -14,7 +16,7 @@ public class TransactionController {
         this.repository = repository;
     }
 
-    public boolean addTransaction(int id, int userId, int stockId, LocalDateTime date){
+    public boolean addTransaction(int id, User userId, Stock stockId, LocalDateTime date){
         if(!this.searchTransactionBool(id)) {
             repository.save(new Transaction(id, userId,stockId,date));
             return true;

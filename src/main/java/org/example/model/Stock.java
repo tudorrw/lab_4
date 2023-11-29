@@ -63,7 +63,9 @@ public class Stock implements Observer {
     }
 
     public void setCompany(Company company_) {
+        company.removeObserver(this);
         company = company_;
+        company.registerObserver(this);
     }
 
     public Market getMarket() {

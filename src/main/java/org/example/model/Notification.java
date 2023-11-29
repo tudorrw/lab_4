@@ -4,14 +4,14 @@ import java.time.LocalDateTime;
 
 public class Notification {
     private int id;
-    private int userId;
+    private User user;
     private String message;
     private LocalDateTime timestamp;
     private String status;
 
-    public Notification(int id, int userId, String message, LocalDateTime timestamp, String status) {
+    public Notification(int id, User user, String message, LocalDateTime timestamp, String status) {
         this.id = id;
-        this.userId = userId;
+        this.user = user;
         this.message = message;
         this.timestamp = timestamp;
         this.status = status;
@@ -25,12 +25,12 @@ public class Notification {
         this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getMessage() {

@@ -114,6 +114,7 @@ public class UserRepositoryDB implements IRepository<User> {
                 PreparedStatement statement = connection.prepareStatement(query);
                 statement.setString(1, username);
                 statement.setString(2, password);
+                statement.setInt(3, id);
                 statement.executeUpdate();
             } catch (SQLException e) {
                 throw new RuntimeException(e);

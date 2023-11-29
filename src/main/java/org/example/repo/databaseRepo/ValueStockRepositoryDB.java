@@ -21,10 +21,15 @@ public class ValueStockRepositoryDB implements IRepository<ValueStock> {
     private MarketRepositoryDB marketRepositoryDB;
     private CompanyRepositoryDB companyRepositoryDB;
 
-    private ValueStockRepositoryDB() {
+    private List<ValueStock> cache;
+
+    public ValueStockRepositoryDB() {
         this.marketRepositoryDB = MarketRepositoryDB.getInstance();
         this.companyRepositoryDB = CompanyRepositoryDB.getInstance();
+        this.cache = importCache();
     }
+
+
 
     public static ValueStockRepositoryDB getInstance() {
         if(instance == null) {
@@ -32,8 +37,9 @@ public class ValueStockRepositoryDB implements IRepository<ValueStock> {
         }
         return instance;
     }
-    @Override
-    public List<ValueStock> getObjects() {
+
+
+    private List<ValueStock> importCache(){
         List<ValueStock> result = new ArrayList<>();
         try {
             String query = "SELECT * FROM ValueStocks";
@@ -42,14 +48,11 @@ public class ValueStockRepositoryDB implements IRepository<ValueStock> {
 
             while(results.next())
             {
-                int id = results.getInt("valueStockId");
+                int id = results.getInt("companyId");
                 String name = results.getString("name");
-                int company_id = results.getInt("companyId");
-                int market_id = results.getInt("marketId");
+                Company company = this.companyRepositoryDB.searchIdCache(results.getInt("companyId"));
+                Market market = this.marketRepositoryDB.searchIdCache(results.getInt("marketId"));
                 double dividend_rate = results.getDouble("dividend_rate");
-
-                Company company = companyRepositoryDB.searchIdCache(company_id);
-                Market market = marketRepositoryDB.searchIdCache(market_id);
                 result.add(new ValueStock(id,name,company,market,dividend_rate));
             }
         }
@@ -58,6 +61,32 @@ public class ValueStockRepositoryDB implements IRepository<ValueStock> {
         }
 
         return result;
+    }
+
+
+    public ValueStock searchIdCache(int id) {
+        for(ValueStock valueStock: this.cache){
+            if (valueStock.getId() == id){
+                return valueStock;
+            }
+        }
+
+        return null;
+    }
+
+    public int searchIdCachePosition(int id) {
+        for(int i = 0 ;i < this.cache.size(); i++){
+            if (cache.get(i).getId() == id){
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    @Override
+    public List<ValueStock> getObjects() {
+        return this.cache;
     }
 
     @Override
@@ -76,6 +105,9 @@ public class ValueStockRepositoryDB implements IRepository<ValueStock> {
             statement.setInt(4, market);
             statement.setDouble(5, dividend_rate);
             statement.executeUpdate();
+
+            this.cache.add(entity);
+
         }
         catch (SQLException e) {
             throw new RuntimeException(e);
@@ -90,18 +122,26 @@ public class ValueStockRepositoryDB implements IRepository<ValueStock> {
         int market = entity.getMarket().getId();
         double dividend_rate = entity.getDividend_rate();
 
-        try {
-            String query = "UPDATE ValueStocks SET name = ?, companyId = ?, marketId = ?, dividend_rate = ? WHERE valueStockId = ?;";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(5, id);
-            statement.setString(1, name);
-            statement.setInt(2, company);
-            statement.setInt(3, market);
-            statement.setDouble(4, dividend_rate);
-            statement.executeUpdate();
-        }
-        catch (SQLException e) {
-            throw new RuntimeException(e);
+        ValueStock old_valueStock = searchIdCache(id);
+
+        if(old_valueStock !=null) {
+            try {
+                String query = "UPDATE ValueStocks SET name = ?, companyId = ?, marketId = ?, dividend_rate = ? WHERE valueStockId = ?;";
+                PreparedStatement statement = connection.prepareStatement(query);
+                statement.setInt(5, id);
+                statement.setString(1, name);
+                statement.setInt(2, company);
+                statement.setInt(3, market);
+                statement.setDouble(4, dividend_rate);
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+            old_valueStock.setName(name);
+            old_valueStock.setCompany(entity.getCompany());
+            old_valueStock.setMarket(entity.getMarket());
+            old_valueStock.setDividend_rate(dividend_rate);
         }
     }
 
@@ -113,6 +153,9 @@ public class ValueStockRepositoryDB implements IRepository<ValueStock> {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
             statement.executeUpdate();
+
+            this.cache.remove(searchIdCachePosition(id));
+
         }
         catch (SQLException e) {
             throw new RuntimeException(e);

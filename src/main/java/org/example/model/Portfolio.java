@@ -4,15 +4,15 @@ import java.util.List;
 
 public class Portfolio {
     private int id;
-    private int userId;
+    private User user;
     private double cash;
-    private List<Integer> idStocks;
+    private List<Stock> stocks;
 
-    public Portfolio(int id, int userId, double cash, List<Integer> idStocks) {
+    public Portfolio(int id, User user, double cash, List<Stock> stocks) {
         this.id = id;
-        this.userId = userId;
+        this.user = user;
         this.cash = cash;
-        this.idStocks = idStocks;
+        this.stocks = stocks;
     }
 
     public int getId() {
@@ -23,12 +23,12 @@ public class Portfolio {
         this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public double getCash() {
@@ -39,11 +39,11 @@ public class Portfolio {
         this.cash = cash;
     }
 
-    public List<Integer> getIdStocks() {
-        return idStocks;
+    public List<Stock> getStocks() {
+        return stocks;
     }
 
-    public void setIdStocks(List<Integer> idStocks) {
-        this.idStocks = idStocks;
+    public void setStocks(List<Stock> stocks) {
+        this.stocks = stocks;
     }
 }

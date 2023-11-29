@@ -12,7 +12,7 @@ public class ValueStock extends Stock{
         return dividend_rate;
     }
 
-    public void setDividend_rate(int dividend_rate) {
+    public void setDividend_rate(double dividend_rate) {
         this.dividend_rate = dividend_rate;
     }
 }

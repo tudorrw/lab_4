@@ -5,10 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73cf9450-0d1e-4a6d-8bb7-8ab289721103" name="Changes" comment="database">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/NotificationRepositoryDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/PortfolioRepositoryDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/TransactionRepositoryDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/NotificationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/PortfolioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/PortfolioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/TransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Notification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Portfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Portfolio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Stock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/ValueStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/ValueStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/AdminRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/AdminRepositoryDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/CompanyRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/CompanyRepositoryDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/GrowthStockRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/GrowthStockRepositoryDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/MarketRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/MarketRepositoryDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/UserRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/UserRepositoryDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/ValueStockRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/ValueStockRepositoryDB.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -466,6 +481,11 @@
           <properties class="java.lang.RuntimeException" package="java.lang" />
           <option name="timeStamp" value="7" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/repo/databaseRepo/TransactionRepositoryDB.java</url>
+          <line>111</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

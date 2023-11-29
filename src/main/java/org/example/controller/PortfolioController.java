@@ -1,9 +1,10 @@
 package org.example.controller;
 
 import org.example.model.Portfolio;
+import org.example.model.Stock;
+import org.example.model.User;
 import org.example.repo.IRepository;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class PortfolioController {
@@ -13,9 +14,9 @@ public class PortfolioController {
         this.repository = repository;
     }
 
-    public boolean addPortfolio(int userId, int id, int cash, List<Integer> idStocks){
+    public boolean addPortfolio(int id,User user, int cash, List<Stock> idStocks){
         if(!this.searchPortfolioBool(id)) {
-            repository.save(new Portfolio(userId,id, cash,idStocks));
+            repository.save(new Portfolio(id,user, cash,idStocks));
             return true;
         }
         else{
